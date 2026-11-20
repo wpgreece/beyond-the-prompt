@@ -1,0 +1,166 @@
+[
+  {
+    "slug": "wp-config",
+    "term": "wp-config.php",
+    "definition": "Το αρχείο ρυθμίσεων του WordPress στον φάκελο της εγκατάστασης. Κρατά τα στοιχεία της βάσης, τα security keys και σταθερές όπως WP_DEBUG και WP_MEMORY_LIMIT.",
+    "related_articles": [
+      "database-connection-error",
+      "enable-wp-debug",
+      "memory-exhausted"
+    ]
+  },
+  {
+    "slug": "htaccess",
+    "term": ".htaccess",
+    "definition": "Αρχείο ρυθμίσεων του Apache. Το WordPress γράφει εκεί τους κανόνες για τα permalinks. Ένα χαλασμένο .htaccess δίνει συχνά σφάλμα 500.",
+    "related_articles": [
+      "internal-server-error-500",
+      "posts-404-permalinks",
+      "spam-redirects"
+    ]
+  },
+  {
+    "slug": "sftp",
+    "term": "FTP / SFTP",
+    "definition": "Τρόπος πρόσβασης στα αρχεία του site χωρίς το wp-admin. Το SFTP είναι η κρυπτογραφημένη εκδοχή και αυτή που πρέπει να προτιμάμε.",
+    "related_articles": [
+      "disable-plugins-without-admin",
+      "stuck-maintenance-mode"
+    ]
+  },
+  {
+    "slug": "phpmyadmin",
+    "term": "phpMyAdmin",
+    "definition": "Εργαλείο διαχείρισης βάσης δεδομένων μέσα από τον browser, που δίνουν οι περισσότεροι πάροχοι hosting.",
+    "related_articles": [
+      "another-update-in-progress",
+      "locked-out-of-admin",
+      "database-cleanup"
+    ]
+  },
+  {
+    "slug": "wp-cli",
+    "term": "WP-CLI",
+    "definition": "Το εργαλείο γραμμής εντολών του WordPress. Κάνει από τερματικό ό,τι και το wp-admin, και πολλά που το wp-admin δεν κάνει.",
+    "related_articles": [
+      "disable-plugins-without-admin",
+      "change-domain",
+      "max-execution-time"
+    ]
+  },
+  {
+    "slug": "php-memory-limit",
+    "term": "PHP memory limit",
+    "definition": "Η μέγιστη μνήμη που μπορεί να χρησιμοποιήσει ένα αίτημα PHP. Όταν ξεπεραστεί, εμφανίζεται «Allowed memory size exhausted».",
+    "related_articles": [
+      "memory-exhausted",
+      "white-screen-of-death"
+    ]
+  },
+  {
+    "slug": "wp-cron",
+    "term": "WP-Cron",
+    "definition": "Ο μηχανισμός του WordPress για προγραμματισμένες εργασίες. Τρέχει όταν κάποιος επισκέπτεται το site, όχι σε σταθερή ώρα.",
+    "related_articles": [
+      "missed-schedule"
+    ]
+  },
+  {
+    "slug": "cache",
+    "term": "Cache",
+    "definition": "Αποθηκευμένο αντίγραφο μιας σελίδας ή ενός αρχείου, ώστε να σερβίρεται γρήγορα χωρίς να ξαναφτιαχτεί. Υπάρχει στον browser, στο plugin, στον server και στο CDN.",
+    "related_articles": [
+      "changes-not-showing",
+      "slow-site"
+    ]
+  },
+  {
+    "slug": "cdn",
+    "term": "CDN",
+    "definition": "Δίκτυο servers σε πολλές χώρες που σερβίρει αντίγραφα του site από τον πιο κοντινό server στον επισκέπτη.",
+    "related_articles": [
+      "slow-site",
+      "too-many-redirects"
+    ]
+  },
+  {
+    "slug": "dns",
+    "term": "DNS",
+    "definition": "Το σύστημα που μεταφράζει ένα domain σε διεύθυνση IP. Οι εγγραφές A, CNAME, MX και TXT λένε πού βρίσκονται το site και το email.",
+    "related_articles": [
+      "dns-propagation",
+      "emails-in-spam"
+    ]
+  },
+  {
+    "slug": "ttl",
+    "term": "TTL",
+    "definition": "Πόσα δευτερόλεπτα κρατά μια εγγραφή DNS στη μνήμη τους οι servers. Μικρό TTL σημαίνει ότι μια αλλαγή φαίνεται πιο γρήγορα.",
+    "related_articles": [
+      "dns-propagation",
+      "move-to-new-host"
+    ]
+  },
+  {
+    "slug": "ssl-certificate",
+    "term": "Πιστοποιητικό SSL/TLS",
+    "definition": "Αυτό που επιτρέπει στο site να ανοίγει με https. Τα δωρεάν πιστοποιητικά Let's Encrypt λήγουν κάθε 90 ημέρες και ανανεώνονται αυτόματα.",
+    "related_articles": [
+      "ssl-certificate-error",
+      "mixed-content"
+    ]
+  },
+  {
+    "slug": "staging",
+    "term": "Staging",
+    "definition": "Αντίγραφο του site όπου δοκιμάζουμε ενημερώσεις και αλλαγές πριν τις κάνουμε στο ζωντανό site.",
+    "related_articles": [
+      "safe-updates",
+      "change-php-version"
+    ]
+  },
+  {
+    "slug": "permalinks",
+    "term": "Permalinks",
+    "definition": "Η μορφή των μόνιμων διευθύνσεων των άρθρων και των σελίδων. Ρυθμίζεται στο Settings → Permalinks.",
+    "related_articles": [
+      "posts-404-permalinks",
+      "invalid-json-response"
+    ]
+  },
+  {
+    "slug": "recovery-mode",
+    "term": "Recovery mode",
+    "definition": "Λειτουργία του WordPress από την έκδοση 5.2. Όταν ένα plugin ή theme προκαλεί κρίσιμο σφάλμα, στέλνει email στον διαχειριστή με σύνδεσμο για είσοδο με το πρόβλημα απομονωμένο.",
+    "related_articles": [
+      "critical-error",
+      "white-screen-of-death"
+    ]
+  },
+  {
+    "slug": "smtp",
+    "term": "SMTP",
+    "definition": "Το πρωτόκολλο αποστολής email. Ένα SMTP plugin στέλνει τα email του WordPress μέσω πραγματικού mail server αντί για τη συνάρτηση mail() του PHP.",
+    "related_articles": [
+      "emails-not-sending",
+      "emails-in-spam"
+    ]
+  },
+  {
+    "slug": "spf-dkim-dmarc",
+    "term": "SPF, DKIM, DMARC",
+    "definition": "Τρεις εγγραφές DNS που αποδεικνύουν ότι ένα email στάλθηκε πραγματικά από το domain σας. Χωρίς αυτές, τα email καταλήγουν συχνά στα spam.",
+    "related_articles": [
+      "emails-in-spam"
+    ]
+  },
+  {
+    "slug": "debug-log",
+    "term": "debug.log",
+    "definition": "Το αρχείο όπου το WordPress γράφει σφάλματα και προειδοποιήσεις όταν είναι ενεργά τα WP_DEBUG και WP_DEBUG_LOG. Βρίσκεται συνήθως στο wp-content/debug.log.",
+    "related_articles": [
+      "enable-wp-debug",
+      "white-screen-of-death"
+    ]
+  }
+]

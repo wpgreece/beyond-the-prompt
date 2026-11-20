@@ -1,0 +1,110 @@
+[
+  {
+    "slug": "errors",
+    "name": "Σφάλματα",
+    "parent": null,
+    "description": "Λευκές σελίδες, κωδικοί HTTP και προβλήματα με τη βάση δεδομένων."
+  },
+  {
+    "slug": "errors-critical",
+    "name": "Λευκή σελίδα & κρίσιμα σφάλματα",
+    "parent": "errors",
+    "description": "Όταν το site δεν φορτώνει καθόλου ή δείχνει «critical error»."
+  },
+  {
+    "slug": "errors-http",
+    "name": "Σφάλματα HTTP",
+    "parent": "errors",
+    "description": "500, 404, 403, 502/504 και ατέρμονα redirects."
+  },
+  {
+    "slug": "errors-database",
+    "name": "Βάση δεδομένων",
+    "parent": "errors",
+    "description": "Σύνδεση, επισκευή και καθάρισμα της βάσης."
+  },
+  {
+    "slug": "updates",
+    "name": "Ενημερώσεις, plugins & themes",
+    "parent": null,
+    "description": "Ενημερώσεις που κόλλησαν και plugins που συγκρούονται."
+  },
+  {
+    "slug": "updates-core",
+    "name": "Ενημερώσεις",
+    "parent": "updates",
+    "description": "Ενημερώσεις του WordPress, των plugins και των themes."
+  },
+  {
+    "slug": "updates-conflicts",
+    "name": "Συγκρούσεις & editor",
+    "parent": "updates",
+    "description": "Plugins και themes που σπάνε το site ή τον block editor."
+  },
+  {
+    "slug": "performance",
+    "name": "Ταχύτητα",
+    "parent": null,
+    "description": "Αργό site, cache, εικόνες και προγραμματισμένες εργασίες."
+  },
+  {
+    "slug": "performance-speed",
+    "name": "Ταχύτητα & cache",
+    "parent": "performance",
+    "description": "Μέτρηση, caching και WP-Cron."
+  },
+  {
+    "slug": "performance-media",
+    "name": "Εικόνες & media",
+    "parent": "performance",
+    "description": "Ανέβασμα αρχείων και βαριές εικόνες."
+  },
+  {
+    "slug": "security",
+    "name": "Ασφάλεια",
+    "parent": null,
+    "description": "Χακαρισμένα sites και προβλήματα σύνδεσης."
+  },
+  {
+    "slug": "security-hacked",
+    "name": "Χακαρισμένο site",
+    "parent": "security",
+    "description": "Τι κάνουμε όταν κάτι ύποπτο τρέχει στο site."
+  },
+  {
+    "slug": "security-login",
+    "name": "Σύνδεση & λογαριασμοί",
+    "parent": "security",
+    "description": "Κωδικοί, κλείδωμα και επιθέσεις στη σελίδα σύνδεσης."
+  },
+  {
+    "slug": "hosting",
+    "name": "Hosting & server",
+    "parent": null,
+    "description": "PHP, domains, SSL, email, μεταφορές και backups."
+  },
+  {
+    "slug": "hosting-php",
+    "name": "PHP & όρια server",
+    "parent": "hosting",
+    "description": "Μνήμη, χρόνος εκτέλεσης και έκδοση PHP."
+  },
+  {
+    "slug": "hosting-dns-ssl",
+    "name": "Domain, DNS & SSL",
+    "parent": "hosting",
+    "description": "Πιστοποιητικά, λουκέτο και αλλαγές DNS."
+  },
+  {
+    "slug": "hosting-email",
+    "name": "Email",
+    "parent": "hosting",
+    "description": "Email που δεν φεύγουν ή πάνε στα spam."
+  },
+  {
+    "slug": "hosting-migration",
+    "name": "Μεταφορά & backups",
+    "parent": "hosting",
+    "description": "Αλλαγή hosting, αλλαγή domain και αντίγραφα ασφαλείας."
+  }
+]

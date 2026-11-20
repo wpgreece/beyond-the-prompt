@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "maria-konstantinou",
+    "name": "Μαρία Κωνσταντίνου",
+    "role": "Support engineer",
+    "bio": "Απαντά σε αιτήματα υποστήριξης WordPress εδώ και οκτώ χρόνια. Ξεκινά πάντα από το error log."
+  },
+  {
+    "slug": "nikos-papadakis",
+    "name": "Νίκος Παπαδάκης",
+    "role": "Hosting & server administrator",
+    "bio": "Στήνει και συντηρεί servers για WordPress. Ξέρει τι σημαίνει κάθε 502."
+  },
+  {
+    "slug": "eleni-dimitriou",
+    "name": "Ελένη Δημητρίου",
+    "role": "WordPress developer",
+    "bio": "Φτιάχνει themes και plugins και βρίσκει γιατί δύο plugins δεν τα πάνε καλά μεταξύ τους."
+  },
+  {
+    "slug": "giorgos-alexiou",
+    "name": "Γιώργος Αλεξίου",
+    "role": "Security specialist",
+    "bio": "Καθαρίζει χακαρισμένα sites και βοηθά να μην ξαναχακαριστούν."
+  }
+]

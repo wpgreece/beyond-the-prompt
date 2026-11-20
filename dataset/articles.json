@@ -1,0 +1,1315 @@
+[
+  {
+    "id": 1,
+    "slug": "white-screen-of-death",
+    "title": "Λευκή σελίδα (White Screen of Death)",
+    "excerpt": "Το site ή το wp-admin δείχνει μια εντελώς λευκή σελίδα χωρίς κανένα μήνυμα. Δείτε πώς βρίσκετε την αιτία.",
+    "content": "<p>Η λευκή σελίδα σημαίνει σχεδόν πάντα ότι ένα σφάλμα PHP σταμάτησε τη φόρτωση και το WordPress έχει ρυθμιστεί να μη δείχνει σφάλματα στους επισκέπτες.</p>\n<h2>Συνηθισμένες αιτίες</h2>\n<ul><li>Ένα plugin ή theme που μόλις ενημερώθηκε ή εγκαταστάθηκε.</li><li>Ασυμβατότητα με την έκδοση PHP του server.</li><li>Εξάντληση της μνήμης PHP.</li></ul>\n<h2>Τι κάνετε</h2>\n<ol><li>Ελέγξτε το email του διαχειριστή: από την έκδοση 5.2 το WordPress στέλνει σύνδεσμο για recovery mode.</li><li>Ενεργοποιήστε το WP_DEBUG_LOG και διαβάστε το <code>wp-content/debug.log</code>. Θα δείξει το αρχείο και τη γραμμή του σφάλματος.</li><li>Αν δεν έχετε πρόσβαση στο wp-admin, απενεργοποιήστε τα plugins μετονομάζοντας τον φάκελό τους μέσω SFTP.</li><li>Αν το πρόβλημα μείνει, βάλτε προσωρινά ένα default theme (π.χ. Twenty Twenty-Five).</li></ol>",
+    "category": "errors-critical",
+    "tags": [
+      "debug",
+      "plugins",
+      "themes",
+      "php"
+    ],
+    "difficulty": "beginner",
+    "error_message": null,
+    "symptoms": [
+      "Λευκή σελίδα στο front end, στο wp-admin ή και στα δύο",
+      "Κανένα μήνυμα σφάλματος",
+      "Ξεκίνησε μετά από ενημέρωση ή νέο plugin"
+    ],
+    "faq": [
+      {
+        "question": "Χάθηκαν τα δεδομένα μου;",
+        "answer": "Όχι. Η λευκή σελίδα είναι πρόβλημα κώδικα, όχι δεδομένων. Τα άρθρα και οι ρυθμίσεις μένουν στη βάση."
+      },
+      {
+        "question": "Γιατί δεν βλέπω κανένα μήνυμα;",
+        "answer": "Γιατί σε ζωντανό site τα σφάλματα δεν εμφανίζονται στους επισκέπτες. Γράφονται στο debug.log όταν το ενεργοποιήσετε."
+      }
+    ],
+    "related": [
+      "critical-error",
+      "enable-wp-debug",
+      "disable-plugins-without-admin",
+      "memory-exhausted"
+    ],
+    "author": "maria-konstantinou",
+    "published": "2026-02-03",
+    "last_reviewed": "2026-10-12"
+  },
+  {
+    "id": 2,
+    "slug": "critical-error",
+    "title": "«There has been a critical error on this website»",
+    "excerpt": "Το μήνυμα κρίσιμου σφάλματος του WordPress και πώς χρησιμοποιείτε το recovery mode για να μπείτε ξανά.",
+    "content": "<p>Από την έκδοση 5.2 το WordPress πιάνει τα κρίσιμα σφάλματα PHP και, αντί για λευκή σελίδα, δείχνει αυτό το μήνυμα. Ταυτόχρονα στέλνει email στη διεύθυνση του διαχειριστή.</p>\n<h2>Μπείτε με recovery mode</h2>\n<ol><li>Ανοίξτε το email «Your Site is Experiencing a Technical Issue». Γράφει ποιο plugin ή theme προκάλεσε το σφάλμα.</li><li>Πατήστε τον σύνδεσμο recovery mode και συνδεθείτε. Το προβληματικό plugin είναι παυμένο μόνο για εσάς.</li><li>Απενεργοποιήστε ή ενημερώστε το plugin, ή επικοινωνήστε με τον δημιουργό του.</li><li>Πατήστε «Exit Recovery Mode».</li></ol>\n<h2>Αν δεν ήρθε email</h2>\n<p>Το email μπορεί να μη φεύγει από τον server. Ενεργοποιήστε το debug.log για να δείτε το σφάλμα, ή απενεργοποιήστε τα plugins μέσω SFTP.</p>",
+    "category": "errors-critical",
+    "tags": [
+      "recovery mode",
+      "plugins",
+      "themes",
+      "debug"
+    ],
+    "difficulty": "beginner",
+    "error_message": "There has been a critical error on this website.",
+    "symptoms": [
+      "Το site δείχνει μόνο το μήνυμα κρίσιμου σφάλματος",
+      "Ήρθε email «Your Site is Experiencing a Technical Issue»"
+    ],
+    "faq": [
+      {
+        "question": "Πόσο ισχύει ο σύνδεσμος recovery mode;",
+        "answer": "Περίπου μία ημέρα. Αν λήξει, το WordPress στέλνει νέο όταν ξανασυμβεί το σφάλμα."
+      }
+    ],
+    "related": [
+      "white-screen-of-death",
+      "enable-wp-debug",
+      "emails-not-sending"
+    ],
+    "author": "maria-konstantinou",
+    "published": "2026-02-05",
+    "last_reviewed": "2026-10-12"
+  },
+  {
+    "id": 3,
+    "slug": "enable-wp-debug",
+    "title": "Ενεργοποίηση WP_DEBUG και ανάγνωση του debug.log",
+    "excerpt": "Τρεις γραμμές στο wp-config.php δείχνουν ακριβώς ποιο αρχείο και ποια γραμμή κώδικα σπάει το site.",
+    "content": "<p>Το debug.log είναι το πρώτο εργαλείο κάθε support engineer. Δείχνει τα σφάλματα PHP χωρίς να τα βλέπουν οι επισκέπτες.</p>\n<h2>Ενεργοποίηση</h2>\n<p>Ανοίξτε το <code>wp-config.php</code> και, πάνω από τη γραμμή «That's all, stop editing!», βάλτε:</p>\n<pre><code>define( 'WP_DEBUG', true );\ndefine( 'WP_DEBUG_LOG', true );\ndefine( 'WP_DEBUG_DISPLAY', false );</code></pre>\n<p>Αν υπάρχει ήδη γραμμή <code>define( 'WP_DEBUG', false );</code>, αλλάξτε την αντί να προσθέσετε δεύτερη.</p>\n<h2>Ανάγνωση</h2>\n<p>Ανοίξτε ξανά τη σελίδα που χαλάει και μετά το <code>wp-content/debug.log</code>. Ψάξτε το τελευταίο «PHP Fatal error»: η διαδρομή του αρχείου δείχνει ποιο plugin ή theme φταίει.</p>\n<h2>Μην το αφήσετε ανοιχτό</h2>\n<p>Όταν τελειώσετε, γυρίστε το WP_DEBUG σε false και σβήστε το debug.log. Μπορεί να περιέχει διαδρομές και στοιχεία του server.</p>",
+    "category": "errors-critical",
+    "tags": [
+      "debug",
+      "wp-config.php",
+      "php"
+    ],
+    "difficulty": "intermediate",
+    "error_message": null,
+    "symptoms": [
+      "Κάτι δεν δουλεύει και δεν ξέρετε γιατί",
+      "Λευκή σελίδα ή κρίσιμο σφάλμα χωρίς λεπτομέρειες"
+    ],
+    "faq": [
+      {
+        "question": "Δεν δημιουργείται debug.log. Γιατί;",
+        "answer": "Συνήθως ο server δεν έχει δικαίωμα εγγραφής στο wp-content, ή οι γραμμές μπήκαν κάτω από το «stop editing». Ελέγξτε και τα δύο."
+      },
+      {
+        "question": "Τα Notice και Deprecated είναι πρόβλημα;",
+        "answer": "Συνήθως όχι. Είναι προειδοποιήσεις. Ψάξτε τα «Fatal error», αυτά σταματούν τη σελίδα."
+      }
+    ],
+    "related": [
+      "white-screen-of-death",
+      "critical-error",
+      "internal-server-error-500"
+    ],
+    "author": "eleni-dimitriou",
+    "published": "2026-01-20",
+    "last_reviewed": "2026-09-30"
+  },
+  {
+    "id": 4,
+    "slug": "internal-server-error-500",
+    "title": "Σφάλμα 500 Internal Server Error",
+    "excerpt": "Ο server απάντησε με γενικό σφάλμα. Οι τρεις συχνότερες αιτίες και η σειρά με την οποία τις ελέγχετε.",
+    "content": "<p>Το 500 είναι γενικό μήνυμα: ο server ξέρει ότι κάτι πήγε στραβά, αλλά δεν λέει τι. Η απάντηση βρίσκεται στα logs.</p>\n<h2>Με αυτή τη σειρά</h2>\n<ol><li><strong>.htaccess:</strong> μετονομάστε το σε <code>.htaccess-old</code>. Αν το site ανοίξει, πηγαίνετε στο Settings → Permalinks και πατήστε Save για να γραφτεί καθαρό αρχείο.</li><li><strong>Σφάλμα PHP:</strong> ενεργοποιήστε το debug.log ή δείτε το error log στον πίνακα του hosting.</li><li><strong>Plugins:</strong> απενεργοποιήστε τα όλα και ενεργοποιήστε τα ένα ένα.</li><li><strong>Μνήμη:</strong> αν το log γράφει «Allowed memory size exhausted», αυξήστε το όριο.</li></ol>\n<p>Αν τίποτα από αυτά δεν βοηθήσει, ζητήστε από τον πάροχο hosting το error log του web server για την ώρα του σφάλματος.</p>",
+    "category": "errors-http",
+    "tags": [
+      ".htaccess",
+      "php",
+      "plugins",
+      "server logs"
+    ],
+    "difficulty": "intermediate",
+    "error_message": "500 Internal Server Error",
+    "symptoms": [
+      "Η σελίδα δείχνει «500 Internal Server Error» ή «HTTP ERROR 500»",
+      "Το σφάλμα εμφανίζεται σε όλο το site ή μόνο στο wp-admin"
+    ],
+    "faq": [
+      {
+        "question": "Το 500 είναι πρόβλημα του hosting;",
+        "answer": "Μπορεί, αλλά τις περισσότερες φορές φταίει κάτι στο site: ένα plugin, το .htaccess ή το όριο μνήμης."
+      }
+    ],
+    "related": [
+      "enable-wp-debug",
+      "memory-exhausted",
+      "find-plugin-conflict",
+      "posts-404-permalinks"
+    ],
+    "author": "nikos-papadakis",
+    "published": "2026-01-14",
+    "last_reviewed": "2026-10-02"
+  },
+  {
+    "id": 5,
+    "slug": "posts-404-permalinks",
+    "title": "Τα άρθρα βγάζουν 404 ενώ η αρχική ανοίγει",
+    "excerpt": "Η αρχική σελίδα δουλεύει, αλλά κάθε άρθρο ή σελίδα δίνει «Not Found». Σχεδόν πάντα φταίνε τα permalinks.",
+    "content": "<p>Όταν μόνο η αρχική λειτουργεί, ο server δεν ξέρει να στέλνει τις «ωραίες» διευθύνσεις στο WordPress.</p>\n<h2>Η γρήγορη λύση</h2>\n<p>Πηγαίνετε στο <strong>Settings → Permalinks</strong> και πατήστε <strong>Save Changes</strong> χωρίς να αλλάξετε τίποτα. Το WordPress ξαναγράφει τους κανόνες. Το ίδιο ισχύει όταν ένα νέο custom post type δίνει 404.</p>\n<h2>Αν δεν φτάνει</h2>\n<ul><li><strong>Apache:</strong> το .htaccess πρέπει να έχει το τυπικό μπλοκ <code># BEGIN WordPress</code> … <code># END WordPress</code> και ο server να επιτρέπει το mod_rewrite.</li><li><strong>Nginx:</strong> το .htaccess αγνοείται. Ο server χρειάζεται <code>try_files $uri $uri/ /index.php?$args;</code> στη ρύθμισή του. Ζητήστε το από τον πάροχο.</li></ul>",
+    "category": "errors-http",
+    "tags": [
+      "permalinks",
+      ".htaccess",
+      "nginx"
+    ],
+    "difficulty": "beginner",
+    "error_message": "404 Not Found",
+    "symptoms": [
+      "Η αρχική ανοίγει, τα άρθρα και οι σελίδες όχι",
+      "Ξεκίνησε μετά από μεταφορά ή αλλαγή server",
+      "Νέο post type δίνει 404"
+    ],
+    "faq": [
+      {
+        "question": "Έφτιαξα νέο post type και τα άρθρα του βγάζουν 404.",
+        "answer": "Αποθηκεύστε ξανά τα permalinks. Οι κανόνες για νέα post types γράφονται μόνο τότε."
+      }
+    ],
+    "related": [
+      "internal-server-error-500",
+      "move-to-new-host",
+      "invalid-json-response"
+    ],
+    "author": "eleni-dimitriou",
+    "published": "2026-01-22",
+    "last_reviewed": "2026-09-18"
+  },
+  {
+    "id": 6,
+    "slug": "forbidden-403",
+    "title": "Σφάλμα 403 Forbidden",
+    "excerpt": "Ο server αρνείται την πρόσβαση. Συνήθως φταίνε δικαιώματα αρχείων ή ένα firewall που μπλόκαρε το αίτημα.",
+    "content": "<p>Το 403 σημαίνει ότι ο server κατάλαβε το αίτημα αλλά αρνείται να το εξυπηρετήσει.</p>\n<h2>Πιθανές αιτίες</h2>\n<ul><li><strong>Δικαιώματα αρχείων:</strong> τα αρχεία θέλουν 644 και οι φάκελοι 755. Το wp-config.php μπορεί να έχει 640 ή 600.</li><li><strong>Security plugin:</strong> κάποιο plugin μπλόκαρε τη διεύθυνση IP σας ή ένα αίτημα που του φάνηκε ύποπτο.</li><li><strong>Firewall του server (mod_security, WAF):</strong> συχνά κόβει αποθηκεύσεις στον editor που περιέχουν κώδικα ή iframes.</li><li><strong>Κανόνας στο .htaccess</strong> που απαγορεύει πρόσβαση σε φάκελο.</li></ul>\n<h2>Τι κάνετε</h2>\n<ol><li>Δοκιμάστε από άλλο δίκτυο, π.χ. από το κινητό. Αν ανοίγει, μπλοκαρίστηκε η IP σας.</li><li>Απενεργοποιήστε προσωρινά το security plugin.</li><li>Ζητήστε από τον πάροχο να δει το log του firewall για την ώρα του σφάλματος.</li></ol>",
+    "category": "errors-http",
+    "tags": [
+      "permissions",
+      "firewall",
+      "security plugins",
+      "mod_security"
+    ],
+    "difficulty": "intermediate",
+    "error_message": "403 Forbidden",
+    "symptoms": [
+      "«403 Forbidden» σε όλο το site ή σε μία σελίδα",
+      "Το 403 εμφανίζεται όταν πατάτε Save ή Publish",
+      "Μόνο κάποιοι χρήστες ή χώρες βλέπουν 403"
+    ],
+    "faq": [
+      {
+        "question": "Το 403 βγαίνει μόνο όταν πατάω Update σε μια σελίδα.",
+        "answer": "Σχεδόν σίγουρα είναι το firewall του server. Ο πάροχος μπορεί να εξαιρέσει τον συγκεκριμένο κανόνα για το site σας."
+      }
+    ],
+    "related": [
+      "brute-force-logins",
+      "invalid-json-response",
+      "internal-server-error-500"
+    ],
+    "author": "nikos-papadakis",
+    "published": "2026-02-10",
+    "last_reviewed": "2026-09-25"
+  },
+  {
+    "id": 7,
+    "slug": "bad-gateway-502-504",
+    "title": "502 Bad Gateway και 504 Gateway Timeout",
+    "excerpt": "Ο web server δεν πήρε απάντηση από την PHP εγκαίρως. Τι σημαίνει και τι μπορείτε να κάνετε από τη μεριά του site.",
+    "content": "<p>Μπροστά από την PHP βρίσκεται ένας web server ή proxy (nginx, CDN). Το 502 σημαίνει ότι η PHP δεν απάντησε σωστά. Το 504 σημαίνει ότι άργησε πάρα πολύ.</p>\n<h2>Συνηθισμένες αιτίες</h2>\n<ul><li>Όλοι οι PHP workers είναι απασχολημένοι, π.χ. από κίνηση ή bots.</li><li>Ένα αίτημα κάνει πολλή δουλειά: εισαγωγή, backup, βαρύ query.</li><li>Ο server ή η PHP κόλλησαν και χρειάζονται restart.</li></ul>\n<h2>Τι κάνετε</h2>\n<ol><li>Αν περάσει σε ένα λεπτό, ήταν φόρτος. Ελέγξτε αν συμπίπτει με cron, backup ή επίθεση από bots.</li><li>Τρέξτε τις βαριές εργασίες με WP-CLI αντί για τον browser.</li><li>Βάλτε page cache, ώστε οι επισκέπτες να μη φτάνουν στην PHP.</li><li>Αν συμβαίνει συχνά, ζητήστε από τον πάροχο περισσότερους PHP workers ή μεγαλύτερο πακέτο.</li></ol>",
+    "category": "errors-http",
+    "tags": [
+      "php-fpm",
+      "timeout",
+      "cdn",
+      "server"
+    ],
+    "difficulty": "intermediate",
+    "error_message": "502 Bad Gateway",
+    "symptoms": [
+      "Διακοπτόμενα 502 ή 504, ειδικά σε ώρες αιχμής",
+      "Το σφάλμα βγαίνει σε βαριές εργασίες, όπως εισαγωγές ή backups",
+      "Μήνυμα από το Cloudflare για το «origin server»"
+    ],
+    "faq": [
+      {
+        "question": "Το Cloudflare λέει ότι φταίει το «Host». Τι σημαίνει;",
+        "answer": "Ότι το Cloudflare λειτουργεί κανονικά, αλλά ο δικός σας server δεν απάντησε. Το πρόβλημα είναι στο hosting."
+      }
+    ],
+    "related": [
+      "slow-site",
+      "max-execution-time",
+      "brute-force-logins"
+    ],
+    "author": "nikos-papadakis",
+    "published": "2026-03-02",
+    "last_reviewed": "2026-10-20"
+  },
+  {
+    "id": 8,
+    "slug": "too-many-redirects",
+    "title": "ERR_TOO_MANY_REDIRECTS: ατέρμονες ανακατευθύνσεις",
+    "excerpt": "Ο browser σταματά γιατί το site τον στέλνει συνέχεια από τη μία διεύθυνση στην άλλη. Συνήθως φταίει το http/https.",
+    "content": "<p>Δύο κανόνες στέλνουν τον επισκέπτη ο ένας στον άλλον: για παράδειγμα ο server λέει «πήγαινε στο https» και κάτι άλλο λέει «πήγαινε στο http».</p>\n<h2>Οι συνήθεις ύποπτοι</h2>\n<ul><li><strong>WordPress Address και Site Address</strong> (Settings → General) με http ενώ το site τρέχει με https, ή με www ενώ ο server στέλνει χωρίς www.</li><li><strong>Cloudflare σε SSL mode «Flexible»</strong> ενώ ο server αναγκάζει https. Βάλτε «Full (strict)».</li><li>Δύο plugins που κάνουν redirect ταυτόχρονα, π.χ. ένα SSL plugin και ένα plugin redirects.</li></ul>\n<h2>Αν δεν μπαίνετε στο wp-admin</h2>\n<p>Ορίστε τις διευθύνσεις στο wp-config.php:</p>\n<pre><code>define( 'WP_HOME', 'https://example.com' );\ndefine( 'WP_SITEURL', 'https://example.com' );</code></pre>\n<p>Καθαρίστε τα cookies του site και δοκιμάστε σε ιδιωτικό παράθυρο.</p>",
+    "category": "errors-http",
+    "tags": [
+      "redirects",
+      "ssl",
+      "cloudflare",
+      "site url"
+    ],
+    "difficulty": "intermediate",
+    "error_message": "ERR_TOO_MANY_REDIRECTS",
+    "symptoms": [
+      "Ο browser γράφει «This page isn't working… redirected you too many times»",
+      "Ξεκίνησε μετά από ενεργοποίηση SSL ή Cloudflare",
+      "Συμβαίνει μόνο στο wp-admin"
+    ],
+    "faq": [
+      {
+        "question": "Γιατί στο ιδιωτικό παράθυρο δουλεύει;",
+        "answer": "Ο browser κρατά στη μνήμη παλιά redirects και cookies. Καθαρίστε τα για το συγκεκριμένο site."
+      }
+    ],
+    "related": [
+      "mixed-content",
+      "ssl-certificate-error",
+      "change-domain"
+    ],
+    "author": "nikos-papadakis",
+    "published": "2026-03-09",
+    "last_reviewed": "2026-10-20"
+  },
+  {
+    "id": 9,
+    "slug": "database-connection-error",
+    "title": "«Error establishing a database connection»",
+    "excerpt": "Το WordPress δεν μπορεί να συνδεθεί στη βάση. Ελέγξτε τα στοιχεία στο wp-config.php και αν η βάση λειτουργεί.",
+    "content": "<p>Το WordPress κρατά όλο το περιεχόμενο στη βάση. Αν δεν συνδεθεί σε αυτήν, δεν μπορεί να δείξει τίποτα.</p>\n<h2>Τι ελέγχετε</h2>\n<ol><li><strong>Στοιχεία σύνδεσης:</strong> στο wp-config.php, τα <code>DB_NAME</code>, <code>DB_USER</code>, <code>DB_PASSWORD</code> και <code>DB_HOST</code> πρέπει να ταιριάζουν με ό,τι δείχνει ο πίνακας του hosting. Μετά από μεταφορά, συχνά αλλάζει το DB_HOST.</li><li><strong>Λειτουργεί η βάση;</strong> Δοκιμάστε να μπείτε στο phpMyAdmin. Αν δεν ανοίγει ούτε εκεί, ο MySQL server είναι κάτω: ενημερώστε τον πάροχο.</li><li><strong>Έχει ο χρήστης δικαιώματα;</strong> Ο χρήστης της βάσης πρέπει να είναι συνδεδεμένος με τη βάση και να έχει όλα τα δικαιώματα.</li><li><strong>Χαλασμένοι πίνακες:</strong> αν το wp-admin γράφει ότι η βάση χρειάζεται επισκευή, δείτε το σχετικό άρθρο.</li></ol>",
+    "category": "errors-database",
+    "tags": [
+      "database",
+      "wp-config.php",
+      "mysql"
+    ],
+    "difficulty": "beginner",
+    "error_message": "Error establishing a database connection",
+    "symptoms": [
+      "Όλο το site δείχνει μόνο αυτό το μήνυμα",
+      "Ξεκίνησε μετά από μεταφορά ή αλλαγή κωδικού βάσης",
+      "Εμφανίζεται και εξαφανίζεται σε ώρες αιχμής"
+    ],
+    "faq": [
+      {
+        "question": "Συμβαίνει μόνο όταν έχει πολλή κίνηση.",
+        "answer": "Ο MySQL server φτάνει το όριο συνδέσεων ή μνήμης. Βάλτε cache και συζητήστε με τον πάροχο για μεγαλύτερο πακέτο."
+      }
+    ],
+    "related": [
+      "database-repair",
+      "move-to-new-host",
+      "slow-site"
+    ],
+    "author": "maria-konstantinou",
+    "published": "2026-01-08",
+    "last_reviewed": "2026-09-10"
+  },
+  {
+    "id": 10,
+    "slug": "database-repair",
+    "title": "Επισκευή της βάσης με το WP_ALLOW_REPAIR",
+    "excerpt": "Το WordPress έχει ενσωματωμένο εργαλείο επισκευής πινάκων. Πώς το ανοίγετε και γιατί πρέπει να το κλείσετε αμέσως μετά.",
+    "content": "<p>Μετά από απότομη διακοπή του server, κάποιος πίνακας μπορεί να χαλάσει. Το WordPress μπορεί να τον επισκευάσει μόνο του.</p>\n<h2>Βήματα</h2>\n<ol><li>Πάρτε backup της βάσης.</li><li>Προσθέστε στο wp-config.php: <pre><code>define( 'WP_ALLOW_REPAIR', true );</code></pre></li><li>Ανοίξτε το <code>https://example.com/wp-admin/maint/repair.php</code> και πατήστε «Repair Database».</li><li><strong>Σβήστε τη γραμμή αμέσως μετά.</strong> Η σελίδα επισκευής ανοίγει χωρίς login, άρα όσο η γραμμή μένει, ο καθένας μπορεί να τη χρησιμοποιήσει.</li></ol>\n<p>Με WP-CLI το ίδιο γίνεται με <code>wp db repair</code>, χωρίς να ανοίξει δημόσια σελίδα.</p>",
+    "category": "errors-database",
+    "tags": [
+      "database",
+      "wp-config.php",
+      "mysql"
+    ],
+    "difficulty": "intermediate",
+    "error_message": "One or more database tables are unavailable. The database may need to be repaired.",
+    "symptoms": [
+      "Το wp-admin λέει ότι η βάση χρειάζεται επισκευή",
+      "Άρθρα ή ρυθμίσεις εξαφανίστηκαν μετά από διακοπή του server"
+    ],
+    "faq": [
+      {
+        "question": "Ποια επιλογή να διαλέξω, Repair ή Repair and Optimize;",
+        "answer": "Το Repair φτάνει. Το Optimize παίρνει περισσότερο χρόνο και σε μεγάλες βάσεις μπορεί να φτάσει το χρονικό όριο."
+      }
+    ],
+    "related": [
+      "database-connection-error",
+      "database-cleanup"
+    ],
+    "author": "eleni-dimitriou",
+    "published": "2026-04-01",
+    "last_reviewed": "2026-09-10"
+  },
+  {
+    "id": 11,
+    "slug": "database-cleanup",
+    "title": "Η βάση μεγάλωσε υπερβολικά: revisions, transients και spam",
+    "excerpt": "Χιλιάδες revisions, ξεχασμένα transients και spam σχόλια φουσκώνουν τη βάση και καθυστερούν το site.",
+    "content": "<p>Η βάση μαζεύει με τα χρόνια δεδομένα που κανείς δεν χρειάζεται.</p>\n<h2>Τι μεγαλώνει</h2>\n<ul><li><strong>Revisions:</strong> κάθε αποθήκευση κρατά ένα αντίγραφο του άρθρου.</li><li><strong>Transients:</strong> προσωρινά δεδομένα από plugins που δεν σβήστηκαν.</li><li><strong>Spam και σχόλια στα σκουπίδια.</strong></li><li><strong>Autoloaded options:</strong> ρυθμίσεις plugins που έχετε σβήσει και φορτώνονται ακόμα σε κάθε σελίδα.</li></ul>\n<h2>Καθάρισμα</h2>\n<ol><li>Πάρτε backup.</li><li>Περιορίστε τα revisions στο wp-config.php: <pre><code>define( 'WP_POST_REVISIONS', 10 );</code></pre></li><li>Με WP-CLI: <code>wp transient delete --expired</code> και <code>wp comment delete $(wp comment list --status=spam --format=ids)</code>.</li><li>Το Tools → Site Health δείχνει αν τα autoloaded options είναι πάρα πολλά.</li></ol>",
+    "category": "errors-database",
+    "tags": [
+      "database",
+      "performance",
+      "revisions"
+    ],
+    "difficulty": "intermediate",
+    "error_message": null,
+    "symptoms": [
+      "Τα backups της βάσης είναι αναπάντεχα μεγάλα",
+      "Το wp-admin είναι αργό ακόμα και με λίγο περιεχόμενο",
+      "Ο πάροχος προειδοποιεί για το μέγεθος της βάσης"
+    ],
+    "faq": [
+      {
+        "question": "Αν σβήσω τα revisions, χάνω κάτι;",
+        "answer": "Χάνετε μόνο το ιστορικό αλλαγών. Η τρέχουσα μορφή κάθε άρθρου μένει όπως είναι."
+      }
+    ],
+    "related": [
+      "database-repair",
+      "slow-site",
+      "backup-strategy"
+    ],
+    "author": "eleni-dimitriou",
+    "published": "2026-05-14",
+    "last_reviewed": "2026-11-03"
+  },
+  {
+    "id": 12,
+    "slug": "stuck-maintenance-mode",
+    "title": "Κόλλησε στο «Briefly unavailable for scheduled maintenance»",
+    "excerpt": "Μια ενημέρωση διακόπηκε και το site έμεινε σε maintenance mode. Η λύση είναι ένα αρχείο που πρέπει να σβηστεί.",
+    "content": "<p>Κατά την ενημέρωση το WordPress φτιάχνει ένα αρχείο <code>.maintenance</code> στον βασικό φάκελο και το σβήνει στο τέλος. Αν η ενημέρωση διακοπεί, το αρχείο μένει.</p>\n<h2>Λύση</h2>\n<ol><li>Συνδεθείτε με SFTP ή με τον file manager του hosting.</li><li>Στον φάκελο όπου είναι το wp-config.php, σβήστε το <code>.maintenance</code>. Είναι κρυφό αρχείο: ενεργοποιήστε την εμφάνιση κρυφών αρχείων.</li><li>Μπείτε στο Dashboard → Updates και ελέγξτε ότι η ενημέρωση ολοκληρώθηκε. Αν όχι, τρέξτε την ξανά.</li></ol>",
+    "category": "updates-core",
+    "tags": [
+      "updates",
+      "maintenance mode",
+      "sftp"
+    ],
+    "difficulty": "beginner",
+    "error_message": "Briefly unavailable for scheduled maintenance. Check back in a minute.",
+    "symptoms": [
+      "Όλο το site δείχνει το μήνυμα συντήρησης για πολλά λεπτά",
+      "Κλείσατε τον browser στη μέση μιας ενημέρωσης"
+    ],
+    "faq": [
+      {
+        "question": "Είναι ασφαλές να σβήσω το .maintenance;",
+        "answer": "Ναι. Το μόνο που κάνει είναι να δείχνει το μήνυμα συντήρησης."
+      }
+    ],
+    "related": [
+      "another-update-in-progress",
+      "safe-updates",
+      "white-screen-of-death"
+    ],
+    "author": "maria-konstantinou",
+    "published": "2026-02-18",
+    "last_reviewed": "2026-10-06"
+  },
+  {
+    "id": 13,
+    "slug": "another-update-in-progress",
+    "title": "«Another update is currently in progress»",
+    "excerpt": "Το WordPress πιστεύει ότι τρέχει ήδη ενημέρωση και δεν σας αφήνει να ξεκινήσετε νέα.",
+    "content": "<p>Για να μην τρέξουν δύο ενημερώσεις μαζί, το WordPress γράφει ένα «κλείδωμα» στη βάση, την επιλογή <code>core_updater.lock</code>. Αν η ενημέρωση διακοπεί, το κλείδωμα μένει.</p>\n<h2>Λύση</h2>\n<ul><li><strong>Περιμένετε 15 λεπτά.</strong> Το κλείδωμα λήγει μόνο του.</li><li><strong>Με WP-CLI:</strong> <code>wp option delete core_updater.lock</code></li><li><strong>Με phpMyAdmin:</strong> στον πίνακα <code>wp_options</code> σβήστε τη γραμμή με option_name <code>core_updater.lock</code>.</li></ul>",
+    "category": "updates-core",
+    "tags": [
+      "updates",
+      "database",
+      "wp-cli"
+    ],
+    "difficulty": "beginner",
+    "error_message": "Another update is currently in progress.",
+    "symptoms": [
+      "Η ενημέρωση του WordPress δεν ξεκινά",
+      "Το μήνυμα εμφανίζεται ακόμα και όταν κανείς άλλος δεν κάνει ενημέρωση"
+    ],
+    "faq": [],
+    "related": [
+      "stuck-maintenance-mode",
+      "safe-updates"
+    ],
+    "author": "maria-konstantinou",
+    "published": "2026-02-19",
+    "last_reviewed": "2026-10-06"
+  },
+  {
+    "id": 14,
+    "slug": "safe-updates",
+    "title": "Πώς κάνω ενημερώσεις χωρίς να χαλάσει το site",
+    "excerpt": "Backup, staging, μία ενημέρωση τη φορά. Μια απλή ρουτίνα που προλαβαίνει τα περισσότερα προβλήματα.",
+    "content": "<p>Οι ενημερώσεις κλείνουν κενά ασφαλείας, άρα δεν τις αφήνουμε. Τις κάνουμε όμως με σειρά.</p>\n<h2>Η ρουτίνα</h2>\n<ol><li><strong>Backup</strong> αρχείων και βάσης, και βεβαιωθείτε ότι ολοκληρώθηκε.</li><li><strong>Διαβάστε το changelog</strong> των μεγάλων ενημερώσεων, π.χ. από 2.x σε 3.0.</li><li><strong>Δοκιμάστε σε staging</strong> αν ο πάροχος το προσφέρει.</li><li><strong>Μία ενημέρωση τη φορά</strong> για τα σημαντικά plugins (φόρμες, eshop, page builder). Έτσι ξέρετε ποια χάλασε κάτι.</li><li><strong>Ελέγξτε</strong> την αρχική, μια φόρμα και, αν έχετε, το καλάθι.</li></ol>\n<h2>Αυτόματες ενημερώσεις</h2>\n<p>Για μικρά, αξιόπιστα plugins οι αυτόματες ενημερώσεις είναι καλή επιλογή. Για τα κρίσιμα, προτιμήστε χειροκίνητες με την παραπάνω ρουτίνα.</p>",
+    "category": "updates-core",
+    "tags": [
+      "updates",
+      "staging",
+      "backup"
+    ],
+    "difficulty": "beginner",
+    "error_message": null,
+    "symptoms": [
+      "Φοβάστε να πατήσετε Update",
+      "Μια ενημέρωση έσπασε το site στο παρελθόν"
+    ],
+    "faq": [
+      {
+        "question": "Πόσο συχνά να κάνω ενημερώσεις;",
+        "answer": "Μία φορά την εβδομάδα είναι καλός ρυθμός. Τις ενημερώσεις ασφαλείας κάντε τις αμέσως."
+      },
+      {
+        "question": "Τι κάνω αν μια ενημέρωση χαλάσει το site;",
+        "answer": "Επαναφέρετε το backup ή γυρίστε το συγκεκριμένο plugin στην προηγούμενη έκδοση, και αναφέρετε το πρόβλημα στον δημιουργό του."
+      }
+    ],
+    "related": [
+      "backup-strategy",
+      "find-plugin-conflict",
+      "change-php-version"
+    ],
+    "author": "eleni-dimitriou",
+    "published": "2026-03-17",
+    "last_reviewed": "2026-11-01"
+  },
+  {
+    "id": 15,
+    "slug": "find-plugin-conflict",
+    "title": "Βρίσκω ποιο plugin προκαλεί το πρόβλημα",
+    "excerpt": "Η μέθοδος «όλα κλειστά, μετά ένα ένα» βρίσκει τον ένοχο. Με το Health Check το κάνετε χωρίς να το δουν οι επισκέπτες.",
+    "content": "<p>Δύο plugins μπορεί να δουλεύουν τέλεια χωριστά και να συγκρούονται μαζί. Ο πιο σίγουρος τρόπος να βρείτε ποιο φταίει είναι η αποκλειστική μέθοδος.</p>\n<h2>Με το plugin Health Check & Troubleshooting</h2>\n<ol><li>Εγκαταστήστε το Health Check & Troubleshooting από το wordpress.org.</li><li>Στο Tools → Site Health → Troubleshooting πατήστε «Enable Troubleshooting Mode». Όλα τα plugins απενεργοποιούνται <strong>μόνο για εσάς</strong>. Οι επισκέπτες βλέπουν το site κανονικά.</li><li>Ελέγξτε αν το πρόβλημα έφυγε. Αν ναι, ενεργοποιήστε τα plugins ένα ένα από το admin bar μέχρι να ξαναεμφανιστεί.</li><li>Αν το πρόβλημα μένει με όλα κλειστά, αλλάξτε σε default theme.</li></ol>\n<h2>Όταν βρείτε τον ένοχο</h2>\n<p>Ελέγξτε για ενημέρωση, ψάξτε στο φόρουμ υποστήριξης του plugin και αναφέρετε τι συγκρούεται με τι.</p>",
+    "category": "updates-conflicts",
+    "tags": [
+      "plugins",
+      "themes",
+      "health check",
+      "troubleshooting"
+    ],
+    "difficulty": "beginner",
+    "error_message": null,
+    "symptoms": [
+      "Κάτι σταμάτησε να δουλεύει μετά από ενημέρωση ή νέο plugin",
+      "Ένα κουμπί, μια φόρμα ή ένα slider δεν λειτουργεί",
+      "Σφάλματα JavaScript στην κονσόλα του browser"
+    ],
+    "faq": [
+      {
+        "question": "Έχω 40 plugins. Πρέπει να τα δοκιμάσω ένα ένα;",
+        "answer": "Όχι απαραίτητα. Ενεργοποιήστε τα μισά: αν το πρόβλημα εμφανιστεί, είναι σε αυτά. Συνεχίστε με τον ίδιο τρόπο. Θα το βρείτε σε 5-6 δοκιμές."
+      }
+    ],
+    "related": [
+      "disable-plugins-without-admin",
+      "editor-unexpected-error",
+      "safe-updates"
+    ],
+    "author": "eleni-dimitriou",
+    "published": "2026-01-28",
+    "last_reviewed": "2026-10-15"
+  },
+  {
+    "id": 16,
+    "slug": "disable-plugins-without-admin",
+    "title": "Απενεργοποίηση plugins χωρίς πρόσβαση στο wp-admin",
+    "excerpt": "Όταν το wp-admin δεν ανοίγει, απενεργοποιείτε plugins μετονομάζοντας φακέλους ή με WP-CLI.",
+    "content": "<p>Το WordPress θεωρεί ένα plugin ανενεργό όταν δεν βρίσκει τον φάκελό του. Αυτό αρκεί για να μπείτε ξανά.</p>\n<h2>Ένα plugin</h2>\n<p>Με SFTP ή file manager, πηγαίνετε στο <code>wp-content/plugins/</code> και μετονομάστε τον φάκελο του ύποπτου plugin, π.χ. <code>my-plugin</code> σε <code>my-plugin-off</code>.</p>\n<h2>Όλα τα plugins</h2>\n<p>Μετονομάστε τον φάκελο <code>plugins</code> σε <code>plugins-off</code>. Μπείτε στο wp-admin, μετά επαναφέρετε το όνομα. Τα plugins θα είναι όλα ανενεργά και τα ενεργοποιείτε ένα ένα.</p>\n<h2>Με WP-CLI</h2>\n<pre><code>wp plugin deactivate --all\nwp plugin deactivate my-plugin --skip-plugins</code></pre>\n<p>Το <code>--skip-plugins</code> φορτώνει το WordPress χωρίς plugins, ώστε η εντολή να τρέξει ακόμα και όταν ένα plugin σπάει τη φόρτωση.</p>",
+    "category": "updates-conflicts",
+    "tags": [
+      "plugins",
+      "sftp",
+      "wp-cli"
+    ],
+    "difficulty": "intermediate",
+    "error_message": null,
+    "symptoms": [
+      "Το wp-admin δείχνει λευκή σελίδα ή κρίσιμο σφάλμα",
+      "Δεν ήρθε email για recovery mode"
+    ],
+    "faq": [
+      {
+        "question": "Χάνω τις ρυθμίσεις του plugin;",
+        "answer": "Όχι. Οι ρυθμίσεις μένουν στη βάση. Όταν το ενεργοποιήσετε ξανά, θα είναι όπως τις αφήσατε."
+      }
+    ],
+    "related": [
+      "find-plugin-conflict",
+      "white-screen-of-death",
+      "critical-error"
+    ],
+    "author": "maria-konstantinou",
+    "published": "2026-02-06",
+    "last_reviewed": "2026-10-15"
+  },
+  {
+    "id": 17,
+    "slug": "invalid-json-response",
+    "title": "«Updating failed. The response is not a valid JSON response.»",
+    "excerpt": "Ο block editor δεν μπορεί να αποθηκεύσει. Το REST API του WordPress μπλοκάρεται ή επιστρέφει κάτι άλλο αντί για JSON.",
+    "content": "<p>Ο block editor αποθηκεύει μέσω του REST API (<code>/wp-json/</code>). Αν η απάντηση δεν είναι JSON, π.χ. είναι σελίδα σφάλματος, ο editor δείχνει αυτό το μήνυμα.</p>\n<h2>Έλεγχοι</h2>\n<ol><li>Tools → Site Health: αν λέει ότι το REST API δεν απαντά, ξεκινήστε από εκεί.</li><li>Αποθηκεύστε ξανά τα permalinks (Settings → Permalinks → Save).</li><li>Ελέγξτε ότι τα WordPress Address και Site Address έχουν το ίδιο πρωτόκολλο (https) και το ίδιο domain.</li><li>Απενεργοποιήστε προσωρινά security plugins που περιορίζουν το REST API.</li><li>Αν συμβαίνει μόνο σε κάποιο περιεχόμενο (π.χ. με κώδικα ή iframe), μάλλον το κόβει το firewall του server.</li></ol>",
+    "category": "updates-conflicts",
+    "tags": [
+      "block editor",
+      "rest api",
+      "permalinks",
+      "firewall"
+    ],
+    "difficulty": "intermediate",
+    "error_message": "Updating failed. The response is not a valid JSON response.",
+    "symptoms": [
+      "Δεν αποθηκεύεται ούτε δημοσιεύεται τίποτα στον editor",
+      "Το Site Health γράφει «The REST API encountered an error»"
+    ],
+    "faq": [
+      {
+        "question": "Στο Classic Editor δουλεύει. Γιατί;",
+        "answer": "Ο Classic Editor αποθηκεύει με κανονική φόρμα, όχι με το REST API. Η λύση όμως είναι να φτιάξετε το REST API, γιατί το χρησιμοποιούν και άλλα κομμάτια του WordPress."
+      }
+    ],
+    "related": [
+      "posts-404-permalinks",
+      "forbidden-403",
+      "mixed-content",
+      "editor-unexpected-error"
+    ],
+    "author": "eleni-dimitriou",
+    "published": "2026-04-08",
+    "last_reviewed": "2026-10-28"
+  },
+  {
+    "id": 18,
+    "slug": "editor-unexpected-error",
+    "title": "«The editor has encountered an unexpected error»",
+    "excerpt": "Ο block editor κράσαρε. Συνήθως φταίει ένα plugin, ένα extension του browser ή παλιό cache.",
+    "content": "<p>Ο editor είναι εφαρμογή JavaScript. Όταν ένα σφάλμα τη σταματήσει, δείχνει αυτό το μήνυμα.</p>\n<h2>Γρήγοροι έλεγχοι</h2>\n<ol><li>Πατήστε «Copy Error» και κρατήστε το κείμενο. Συχνά γράφει το όνομα του block ή του plugin.</li><li>Ανοίξτε τον editor σε ιδιωτικό παράθυρο. Αν δουλεύει, φταίει κάποιο extension του browser ή το cache.</li><li>Αν συμβαίνει σε ένα άρθρο, ίσως φταίει ένα block. Ανοίξτε τον Code editor (Ctrl+Shift+Alt+M) για να δείτε το περιεχόμενο.</li><li>Αν συμβαίνει σε όλα τα άρθρα, ψάξτε το plugin που φταίει με το Health Check.</li></ol>",
+    "category": "updates-conflicts",
+    "tags": [
+      "block editor",
+      "plugins",
+      "browser"
+    ],
+    "difficulty": "intermediate",
+    "error_message": "The editor has encountered an unexpected error.",
+    "symptoms": [
+      "Ο editor δείχνει το μήνυμα με τα κουμπιά «Attempt Recovery» και «Copy Error»",
+      "Συμβαίνει σε ένα μόνο άρθρο ή σε όλα"
+    ],
+    "faq": [],
+    "related": [
+      "find-plugin-conflict",
+      "invalid-json-response",
+      "changes-not-showing"
+    ],
+    "author": "eleni-dimitriou",
+    "published": "2026-04-15",
+    "last_reviewed": "2026-10-28"
+  },
+  {
+    "id": 19,
+    "slug": "slow-site",
+    "title": "Το site είναι αργό: από πού ξεκινάω",
+    "excerpt": "Μετρήστε πρώτα, μετά διορθώστε. Οι πέντε έλεγχοι που λύνουν τα περισσότερα προβλήματα ταχύτητας.",
+    "content": "<p>«Αργό» μπορεί να σημαίνει πολλά. Μετρήστε πρώτα με το <strong>PageSpeed Insights</strong> και δείτε αν το πρόβλημα είναι ο server (χρόνος πρώτης απόκρισης) ή η σελίδα (εικόνες, scripts).</p>\n<h2>Οι πέντε έλεγχοι</h2>\n<ol><li><strong>Page cache:</strong> ένα caching plugin ή το cache του hosting σερβίρει έτοιμες σελίδες χωρίς PHP και βάση.</li><li><strong>Εικόνες:</strong> μεγάλες εικόνες είναι η συχνότερη αιτία αργής σελίδας.</li><li><strong>Plugins:</strong> δεν μετράει τόσο το πλήθος όσο τα βαριά, π.χ. όσα φορτώνουν scripts σε κάθε σελίδα.</li><li><strong>Έκδοση PHP:</strong> οι νεότερες εκδόσεις είναι αισθητά πιο γρήγορες.</li><li><strong>Hosting:</strong> αν ο χρόνος απόκρισης μένει πάνω από ένα δευτερόλεπτο με cache, ο server δεν φτάνει.</li></ol>",
+    "category": "performance-speed",
+    "tags": [
+      "performance",
+      "cache",
+      "pagespeed",
+      "hosting"
+    ],
+    "difficulty": "beginner",
+    "error_message": null,
+    "symptoms": [
+      "Οι σελίδες κάνουν πάνω από 3 δευτερόλεπτα να ανοίξουν",
+      "Το PageSpeed Insights δίνει χαμηλό σκορ",
+      "Το wp-admin είναι αργό"
+    ],
+    "faq": [
+      {
+        "question": "Χρειάζομαι CDN;",
+        "answer": "Αν οι επισκέπτες σας είναι κυρίως στην Ελλάδα και ο server επίσης, το κέρδος είναι μικρό. Αν έρχονται από πολλές χώρες, βοηθά πολύ."
+      }
+    ],
+    "related": [
+      "changes-not-showing",
+      "heavy-images",
+      "change-php-version",
+      "database-cleanup"
+    ],
+    "author": "nikos-papadakis",
+    "published": "2026-02-24",
+    "last_reviewed": "2026-11-05"
+  },
+  {
+    "id": 20,
+    "slug": "changes-not-showing",
+    "title": "Οι αλλαγές μου δεν εμφανίζονται στο site",
+    "excerpt": "Αποθηκεύσατε, αλλά το site δείχνει την παλιά εκδοχή. Κάποιο cache κρατά το παλιό αντίγραφο.",
+    "content": "<p>Ανάμεσα στη βάση και στα μάτια σας υπάρχουν έως και τέσσερα επίπεδα cache. Αδειάστε τα από μέσα προς τα έξω.</p>\n<ol><li><strong>Cache του plugin</strong> (π.χ. «Purge all» στο admin bar).</li><li><strong>Cache του server</strong>, από τον πίνακα του hosting.</li><li><strong>CDN</strong>, π.χ. «Purge Everything» στο Cloudflare.</li><li><strong>Browser:</strong> Ctrl+F5 ή ιδιωτικό παράθυρο.</li></ol>\n<p>Για να ξέρετε αν φταίει ο δικός σας browser, ανοίξτε το site από το κινητό με τα δεδομένα κινητής, όχι από το Wi-Fi.</p>",
+    "category": "performance-speed",
+    "tags": [
+      "cache",
+      "cdn",
+      "browser"
+    ],
+    "difficulty": "beginner",
+    "error_message": null,
+    "symptoms": [
+      "Η αλλαγή φαίνεται στο wp-admin αλλά όχι στο site",
+      "Άλλοι βλέπουν την αλλαγή, εσείς όχι, ή το αντίστροφο",
+      "Αλλαγές στο CSS δεν εφαρμόζονται"
+    ],
+    "faq": [
+      {
+        "question": "Πρέπει να το κάνω σε κάθε αλλαγή;",
+        "answer": "Τα περισσότερα caching plugins αδειάζουν μόνα τους τη σελίδα που αλλάξατε. Χειροκίνητα χρειάζεται συνήθως μετά από αλλαγές στο theme ή στο CSS."
+      }
+    ],
+    "related": [
+      "slow-site",
+      "editor-unexpected-error"
+    ],
+    "author": "maria-konstantinou",
+    "published": "2026-03-05",
+    "last_reviewed": "2026-10-09"
+  },
+  {
+    "id": 21,
+    "slug": "missed-schedule",
+    "title": "Οι προγραμματισμένες αναρτήσεις δείχνουν «Missed schedule»",
+    "excerpt": "Το WP-Cron τρέχει μόνο όταν έχει επισκέψεις. Με έναν πραγματικό cron job οι αναρτήσεις βγαίνουν στην ώρα τους.",
+    "content": "<p>Το WordPress δεν έχει δικό του ρολόι. Ελέγχει για εκκρεμείς εργασίες κάθε φορά που κάποιος ανοίγει μια σελίδα. Σε site με λίγη κίνηση ή με πλήρες page cache, ο έλεγχος μπορεί να μη γίνει στην ώρα του.</p>\n<h2>Λύση: πραγματικός cron</h2>\n<ol><li>Στο wp-config.php: <pre><code>define( 'DISABLE_WP_CRON', true );</code></pre></li><li>Στον πίνακα του hosting (Cron Jobs), προσθέστε εργασία κάθε 5 λεπτά: <pre><code>*/5 * * * * wget -q -O - https://example.com/wp-cron.php?doing_wp_cron &gt;/dev/null 2&gt;&amp;1</code></pre></li></ol>\n<p>Με WP-CLI μπορείτε να δείτε τις εκκρεμείς εργασίες: <code>wp cron event list</code>.</p>",
+    "category": "performance-speed",
+    "tags": [
+      "wp-cron",
+      "cron",
+      "scheduled posts"
+    ],
+    "difficulty": "intermediate",
+    "error_message": "Missed schedule",
+    "symptoms": [
+      "Άρθρα δεν δημοσιεύονται την ώρα που ορίσατε",
+      "Newsletters ή backups δεν τρέχουν τακτικά"
+    ],
+    "faq": [
+      {
+        "question": "Υπάρχει plugin που το λύνει;",
+        "answer": "Υπάρχουν, αλλά κάνουν πάλι επισκέψεις στο site. Ο πραγματικός cron είναι η σωστή λύση."
+      }
+    ],
+    "related": [
+      "slow-site",
+      "backup-strategy"
+    ],
+    "author": "nikos-papadakis",
+    "published": "2026-05-06",
+    "last_reviewed": "2026-10-21"
+  },
+  {
+    "id": 22,
+    "slug": "upload-max-filesize",
+    "title": "«The uploaded file exceeds the upload_max_filesize directive»",
+    "excerpt": "Το αρχείο είναι μεγαλύτερο από το όριο της PHP. Πώς αυξάνετε το όριο ή μικραίνετε το αρχείο.",
+    "content": "<p>Το όριο το βάζει η PHP του server, όχι το WordPress. Το βλέπετε στο <strong>Media → Add New</strong>, κάτω από το κουτί.</p>\n<h2>Αύξηση του ορίου</h2>\n<ul><li><strong>Από τον πίνακα του hosting:</strong> στις ρυθμίσεις PHP (π.χ. «Select PHP Version» → Options ή «MultiPHP INI Editor»), αλλάξτε τα <code>upload_max_filesize</code> και <code>post_max_size</code>.</li><li><strong>Με αρχείο <code>.user.ini</code></strong> ή <code>php.ini</code> στον βασικό φάκελο, αν ο πάροχος το επιτρέπει: <pre><code>upload_max_filesize = 64M\npost_max_size = 64M</code></pre></li></ul>\n<p>Το <code>post_max_size</code> πρέπει να είναι ίσο ή μεγαλύτερο από το <code>upload_max_filesize</code>.</p>\n<h2>Ή μικρύνετε το αρχείο</h2>\n<p>Για βίντεο, προτιμήστε YouTube ή Vimeo και βάλτε το στη σελίδα με embed. Το hosting δεν είναι φτιαγμένο για streaming.</p>",
+    "category": "performance-media",
+    "tags": [
+      "media",
+      "php",
+      "upload",
+      "php.ini"
+    ],
+    "difficulty": "beginner",
+    "error_message": "The uploaded file exceeds the upload_max_filesize directive in php.ini.",
+    "symptoms": [
+      "Μεγάλα αρχεία (βίντεο, PDF, zip) δεν ανεβαίνουν",
+      "Το Media → Add New δείχνει μικρό «Maximum upload file size»"
+    ],
+    "faq": [],
+    "related": [
+      "image-upload-http-error",
+      "heavy-images",
+      "max-execution-time"
+    ],
+    "author": "nikos-papadakis",
+    "published": "2026-03-12",
+    "last_reviewed": "2026-09-22"
+  },
+  {
+    "id": 23,
+    "slug": "image-upload-http-error",
+    "title": "«HTTP error» όταν ανεβάζω εικόνα",
+    "excerpt": "Ένα γενικό μήνυμα στη βιβλιοθήκη πολυμέσων. Συνήθως η εικόνα είναι πολύ μεγάλη για τη μνήμη του server.",
+    "content": "<p>Μετά το ανέβασμα, το WordPress φτιάχνει πολλά μεγέθη της εικόνας. Για μια φωτογραφία 6000×4000 pixels αυτό θέλει αρκετή μνήμη και χρόνο.</p>\n<h2>Δοκιμάστε με τη σειρά</h2>\n<ol><li>Μικρύνετε την εικόνα πριν το ανέβασμα, π.χ. στα 2560 pixels πλάτος.</li><li>Μετονομάστε το αρχείο με λατινικούς χαρακτήρες, χωρίς κενά και σύμβολα.</li><li>Ξαναδοκιμάστε μετά από λίγο. Αν περάσει, ήταν στιγμιαίος φόρτος.</li><li>Αν το debug.log γράφει «Allowed memory size exhausted», αυξήστε τη μνήμη PHP.</li></ol>",
+    "category": "performance-media",
+    "tags": [
+      "media",
+      "images",
+      "php",
+      "memory"
+    ],
+    "difficulty": "beginner",
+    "error_message": "HTTP error.",
+    "symptoms": [
+      "Η μπάρα φτάνει στο 100% και μετά δείχνει «HTTP error»",
+      "Συμβαίνει με φωτογραφίες από κινητό ή κάμερα"
+    ],
+    "faq": [
+      {
+        "question": "Γιατί το WordPress μικραίνει τις φωτογραφίες μου;",
+        "answer": "Από την έκδοση 5.3, εικόνες μεγαλύτερες από 2560 pixels μικραίνουν αυτόματα, για να μη βαραίνουν οι σελίδες. Το πρωτότυπο κρατιέται."
+      }
+    ],
+    "related": [
+      "upload-max-filesize",
+      "heavy-images",
+      "memory-exhausted"
+    ],
+    "author": "maria-konstantinou",
+    "published": "2026-03-19",
+    "last_reviewed": "2026-09-22"
+  },
+  {
+    "id": 24,
+    "slug": "heavy-images",
+    "title": "Βαριές εικόνες και αργή φόρτωση",
+    "excerpt": "Οι εικόνες είναι συνήθως το μεγαλύτερο κομμάτι μιας σελίδας. Μέγεθος, μορφή και lazy loading κάνουν τη διαφορά.",
+    "content": "<p>Μια φωτογραφία από κινητό μπορεί να έχει 5 MB. Στη σελίδα χρειάζεται συνήθως λιγότερο από 200 KB.</p>\n<h2>Τι κάνετε</h2>\n<ul><li><strong>Σωστό μέγεθος:</strong> μην ανεβάζετε εικόνες πολύ μεγαλύτερες από όσο θα φαίνονται.</li><li><strong>Σύγχρονες μορφές:</strong> το WordPress υποστηρίζει WebP και, από την έκδοση 6.5, AVIF. Είναι πολύ μικρότερες από JPEG στην ίδια ποιότητα.</li><li><strong>Συμπίεση:</strong> ένα plugin συμπίεσης ή ένα εργαλείο όπως το Squoosh πριν το ανέβασμα.</li><li><strong>Lazy loading:</strong> το WordPress το κάνει μόνο του από την έκδοση 5.5. Οι εικόνες κάτω από την οθόνη φορτώνουν όταν πλησιάσει ο επισκέπτης.</li></ul>",
+    "category": "performance-media",
+    "tags": [
+      "images",
+      "performance",
+      "webp",
+      "avif"
+    ],
+    "difficulty": "beginner",
+    "error_message": null,
+    "symptoms": [
+      "Το PageSpeed Insights προτείνει «Properly size images» ή «Serve images in next-gen formats»",
+      "Η σελίδα φορτώνει πολύ αργά στο κινητό"
+    ],
+    "faq": [
+      {
+        "question": "Να ξαναανεβάσω όλες τις παλιές εικόνες;",
+        "answer": "Όχι. Ένα plugin συμπίεσης μπορεί να επεξεργαστεί τις υπάρχουσες εικόνες μαζικά."
+      }
+    ],
+    "related": [
+      "slow-site",
+      "image-upload-http-error",
+      "upload-max-filesize"
+    ],
+    "author": "eleni-dimitriou",
+    "published": "2026-04-22",
+    "last_reviewed": "2026-11-05"
+  },
+  {
+    "id": 25,
+    "slug": "hacked-site-first-steps",
+    "title": "Το site μου χακαρίστηκε: τα πρώτα βήματα",
+    "excerpt": "Τι κάνετε την πρώτη ώρα: κρατάτε στοιχεία, αλλάζετε κωδικούς, καθαρίζετε και κλείνετε την πόρτα που άνοιξε.",
+    "content": "<p>Μην πανικοβληθείτε και μη σβήσετε τίποτα βιαστικά. Η σειρά μετράει.</p>\n<ol><li><strong>Κρατήστε αντίγραφο</strong> του site όπως είναι. Θα χρειαστεί για να βρεθεί από πού μπήκαν.</li><li><strong>Αλλάξτε όλους τους κωδικούς:</strong> WordPress, hosting, SFTP, βάση δεδομένων. Αλλάξτε και τα security keys στο wp-config.php, ώστε να αποσυνδεθούν όλοι.</li><li><strong>Ελέγξτε τους χρήστες</strong> και σβήστε όσους δεν αναγνωρίζετε.</li><li><strong>Ελέγξτε τα αρχεία του WordPress:</strong> το <code>wp core verify-checksums</code> δείχνει ποια αρχεία του πυρήνα άλλαξαν.</li><li><strong>Ξαναεγκαταστήστε</strong> τον πυρήνα, τα plugins και το theme από καθαρές πηγές. Αν έχετε backup από πριν το χακάρισμα, η επαναφορά είναι συχνά πιο γρήγορη.</li><li><strong>Κλείστε την πόρτα:</strong> ενημερώστε ό,τι είναι παλιό και σβήστε plugins που δεν χρησιμοποιείτε. Συνήθως από εκεί μπήκαν.</li></ol>",
+    "category": "security-hacked",
+    "tags": [
+      "security",
+      "malware",
+      "passwords",
+      "backup"
+    ],
+    "difficulty": "intermediate",
+    "error_message": null,
+    "symptoms": [
+      "Άγνωστοι χρήστες με ρόλο Administrator",
+      "Περιεχόμενο που δεν γράψατε, π.χ. διαφημίσεις ή ξένες γλώσσες",
+      "Ο browser ή η Google προειδοποιούν ότι το site είναι επικίνδυνο",
+      "Ο πάροχος σας ενημέρωσε για malware"
+    ],
+    "faq": [
+      {
+        "question": "Αρκεί ένα security plugin για να καθαρίσει το site;",
+        "answer": "Βοηθά στον εντοπισμό, αλλά δεν βρίσκει πάντα τα πάντα. Αν δεν είστε σίγουροι, ζητήστε επαγγελματικό καθαρισμό."
+      },
+      {
+        "question": "Η Google έβαλε προειδοποίηση. Πώς φεύγει;",
+        "answer": "Αφού καθαρίσετε, ζητήστε επανεξέταση από το Google Search Console, στην ενότητα Security issues."
+      }
+    ],
+    "related": [
+      "spam-redirects",
+      "brute-force-logins",
+      "backup-strategy",
+      "safe-updates"
+    ],
+    "author": "giorgos-alexiou",
+    "published": "2026-02-12",
+    "last_reviewed": "2026-11-08"
+  },
+  {
+    "id": 26,
+    "slug": "spam-redirects",
+    "title": "Το site στέλνει τους επισκέπτες σε spam σελίδες",
+    "excerpt": "Κάποιοι επισκέπτες, συνήθως από κινητό ή από τη Google, καταλήγουν σε άλλα sites. Πού κρύβεται ο κώδικας.",
+    "content": "<p>Τα κακόβουλα redirects κρύβονται έξυπνα: συχνά δεν ενεργοποιούνται για συνδεδεμένους χρήστες ή για όσους πληκτρολογούν τη διεύθυνση απευθείας.</p>\n<h2>Πού να ψάξετε</h2>\n<ul><li><strong>.htaccess:</strong> κανόνες με <code>RewriteCond %{HTTP_REFERER}</code> ή <code>%{HTTP_USER_AGENT}</code> που στέλνουν σε άγνωστο domain.</li><li><strong>Βάση δεδομένων:</strong> αναζητήστε <code>&lt;script</code> στα άρθρα και στις επιλογές, και ελέγξτε τα <code>siteurl</code> και <code>home</code> στον πίνακα wp_options.</li><li><strong>Theme:</strong> το <code>functions.php</code> και το <code>header.php</code>, για κώδικα με <code>eval</code>, <code>base64_decode</code> ή <code>gzinflate</code>.</li><li><strong>Φάκελος uploads:</strong> δεν πρέπει να περιέχει αρχεία .php.</li></ul>\n<p>Δοκιμάστε το redirect από ιδιωτικό παράθυρο στο κινητό, ερχόμενοι από αναζήτηση της Google.</p>",
+    "category": "security-hacked",
+    "tags": [
+      "security",
+      "malware",
+      "redirects",
+      ".htaccess"
+    ],
+    "difficulty": "advanced",
+    "error_message": null,
+    "symptoms": [
+      "Το redirect γίνεται μόνο από κινητό ή μόνο όταν έρχεστε από τη Google",
+      "Εσείς ως συνδεδεμένος χρήστης δεν το βλέπετε ποτέ",
+      "Τα αποτελέσματα της Google δείχνουν ξένους τίτλους"
+    ],
+    "faq": [],
+    "related": [
+      "hacked-site-first-steps",
+      "too-many-redirects"
+    ],
+    "author": "giorgos-alexiou",
+    "published": "2026-06-03",
+    "last_reviewed": "2026-11-08"
+  },
+  {
+    "id": 27,
+    "slug": "locked-out-of-admin",
+    "title": "Δεν μπορώ να μπω στο wp-admin",
+    "excerpt": "Ξεχάσατε τον κωδικό και το email επαναφοράς δεν έρχεται. Τρεις τρόποι να μπείτε ξανά.",
+    "content": "<h2>1. «Lost your password?»</h2>\n<p>Η σελίδα σύνδεσης στέλνει σύνδεσμο επαναφοράς στο email του λογαριασμού. Ελέγξτε και τα spam.</p>\n<h2>2. Με WP-CLI</h2>\n<pre><code>wp user list\nwp user update USERNAME --user_pass=\"ΝΕΟΣ-ΙΣΧΥΡΟΣ-ΚΩΔΙΚΟΣ\"</code></pre>\n<h2>3. Με phpMyAdmin</h2>\n<p>Στον πίνακα <code>wp_users</code>, βρείτε τον χρήστη, επιλέξτε τη συνάρτηση MD5 για το πεδίο <code>user_pass</code> και γράψτε τον νέο κωδικό. Μόλις συνδεθείτε, το WordPress θα τον αποθηκεύσει ξανά με ασφαλέστερο τρόπο.</p>\n<p>Αν το email επαναφοράς δεν ήρθε ποτέ, το site πιθανότατα δεν στέλνει email. Φτιάξτε αυτό στη συνέχεια.</p>",
+    "category": "security-login",
+    "tags": [
+      "login",
+      "passwords",
+      "phpmyadmin",
+      "wp-cli"
+    ],
+    "difficulty": "beginner",
+    "error_message": "The password you entered for the username is incorrect.",
+    "symptoms": [
+      "Ο κωδικός δεν γίνεται δεκτός",
+      "Το email «Lost your password?» δεν έρχεται"
+    ],
+    "faq": [
+      {
+        "question": "Μπορεί ο πάροχος hosting να με βοηθήσει;",
+        "answer": "Ναι. Πολλοί πάροχοι έχουν εργαλείο WordPress στον πίνακα που αλλάζει τον κωδικό του διαχειριστή με ένα κλικ."
+      }
+    ],
+    "related": [
+      "emails-not-sending",
+      "brute-force-logins"
+    ],
+    "author": "maria-konstantinou",
+    "published": "2026-01-30",
+    "last_reviewed": "2026-10-01"
+  },
+  {
+    "id": 28,
+    "slug": "brute-force-logins",
+    "title": "Χιλιάδες αποτυχημένες προσπάθειες σύνδεσης",
+    "excerpt": "Bots δοκιμάζουν κωδικούς στο wp-login.php όλη μέρα. Πώς προστατεύεστε και πώς ελαφρώνετε τον server.",
+    "content": "<p>Κάθε δημόσιο site WordPress δέχεται τέτοιες επιθέσεις. Δεν σημαίνει ότι σας στοχεύουν προσωπικά, αλλά δεν τις αγνοούμε.</p>\n<h2>Προστασία</h2>\n<ul><li><strong>Ισχυροί και μοναδικοί κωδικοί</strong> για κάθε διαχειριστή, και κανένας χρήστης με όνομα «admin».</li><li><strong>Έλεγχος δύο βημάτων (2FA)</strong> για όλους τους διαχειριστές.</li><li><strong>Όριο αποτυχημένων προσπαθειών</strong> με ένα security plugin.</li><li><strong>XML-RPC:</strong> αν δεν το χρειάζεστε (π.χ. για την εφαρμογή Jetpack ή για παλιές εφαρμογές κινητού), κλείστε το. Είναι αγαπημένος στόχος των bots.</li><li><strong>Firewall μπροστά από το site</strong>, π.χ. Cloudflare, ώστε τα bots να κόβονται πριν φτάσουν στον server.</li></ul>",
+    "category": "security-login",
+    "tags": [
+      "security",
+      "login",
+      "2fa",
+      "xml-rpc",
+      "firewall"
+    ],
+    "difficulty": "intermediate",
+    "error_message": null,
+    "symptoms": [
+      "Emails από security plugin για κλειδωμένες διευθύνσεις IP",
+      "Ο server είναι αργός χωρίς αύξηση στους επισκέπτες",
+      "Πολλά αιτήματα στο wp-login.php ή στο xmlrpc.php στα logs"
+    ],
+    "faq": [
+      {
+        "question": "Να αλλάξω τη διεύθυνση του wp-login.php;",
+        "answer": "Μειώνει τον θόρυβο στα logs, αλλά δεν αντικαθιστά τους ισχυρούς κωδικούς και το 2FA."
+      }
+    ],
+    "related": [
+      "hacked-site-first-steps",
+      "locked-out-of-admin",
+      "bad-gateway-502-504"
+    ],
+    "author": "giorgos-alexiou",
+    "published": "2026-03-24",
+    "last_reviewed": "2026-11-08"
+  },
+  {
+    "id": 29,
+    "slug": "memory-exhausted",
+    "title": "«Allowed memory size exhausted»",
+    "excerpt": "Ένα αίτημα PHP ξεπέρασε το όριο μνήμης. Πώς αυξάνετε το όριο και πώς βρίσκετε τι τρώει τη μνήμη.",
+    "content": "<p>Ο αριθμός στο μήνυμα είναι το όριο σε bytes: 134217728 είναι 128 MB.</p>\n<h2>Αύξηση του ορίου</h2>\n<p>Στο wp-config.php:</p>\n<pre><code>define( 'WP_MEMORY_LIMIT', '256M' );\ndefine( 'WP_MAX_MEMORY_LIMIT', '512M' );</code></pre>\n<p>Το πρώτο ισχύει για το site, το δεύτερο για το wp-admin. Το WordPress όμως δεν μπορεί να ξεπεράσει το <code>memory_limit</code> της PHP. Αν ο πάροχος το έχει στα 128M, πρέπει να το αλλάξετε στις ρυθμίσεις PHP του hosting.</p>\n<h2>Βρείτε την αιτία</h2>\n<p>Αν χρειάζεται όλο και περισσότερη μνήμη, κάποιο plugin κάνει κάτι βαρύ. Το debug.log δείχνει σε ποιο αρχείο τελείωσε η μνήμη, και αυτό είναι καλή πρώτη ένδειξη.</p>",
+    "category": "hosting-php",
+    "tags": [
+      "php",
+      "memory",
+      "wp-config.php"
+    ],
+    "difficulty": "intermediate",
+    "error_message": "Allowed memory size of 134217728 bytes exhausted",
+    "symptoms": [
+      "Το μήνυμα εμφανίζεται στη σελίδα ή στο debug.log",
+      "Λευκή σελίδα σε βαριές σελίδες του wp-admin",
+      "Αποτυγχάνουν εισαγωγές ή ανεβάσματα εικόνων"
+    ],
+    "faq": [
+      {
+        "question": "Πόση μνήμη χρειάζεται ένα WordPress site;",
+        "answer": "Ένα απλό site δουλεύει άνετα με 128M. Eshops και sites με page builders θέλουν συνήθως 256M."
+      }
+    ],
+    "related": [
+      "white-screen-of-death",
+      "max-execution-time",
+      "image-upload-http-error",
+      "enable-wp-debug"
+    ],
+    "author": "nikos-papadakis",
+    "published": "2026-01-16",
+    "last_reviewed": "2026-10-18"
+  },
+  {
+    "id": 30,
+    "slug": "max-execution-time",
+    "title": "«Maximum execution time of 30 seconds exceeded»",
+    "excerpt": "Ένα αίτημα PHP ξεπέρασε το χρονικό όριο. Συμβαίνει σε εισαγωγές, backups και ενημερώσεις.",
+    "content": "<p>Η PHP σταματά κάθε αίτημα που ξεπερνά το <code>max_execution_time</code>, συνήθως 30 ή 60 δευτερόλεπτα. Είναι προστασία για τον server.</p>\n<h2>Λύσεις</h2>\n<ul><li><strong>Αυξήστε το όριο</strong> στις ρυθμίσεις PHP του hosting ή στο <code>.user.ini</code>: <pre><code>max_execution_time = 300</code></pre></li><li><strong>Χωρίστε τη δουλειά:</strong> εισάγετε σε μικρότερα κομμάτια.</li><li><strong>Χρησιμοποιήστε WP-CLI:</strong> οι εντολές από τερματικό συνήθως δεν έχουν χρονικό όριο.</li></ul>\n<p>Αν μπροστά από την PHP υπάρχει proxy ή CDN, μπορεί να κόψει το αίτημα νωρίτερα και να δείξει 504.</p>",
+    "category": "hosting-php",
+    "tags": [
+      "php",
+      "timeout",
+      "wp-cli",
+      "imports"
+    ],
+    "difficulty": "intermediate",
+    "error_message": "Maximum execution time of 30 seconds exceeded",
+    "symptoms": [
+      "Εισαγωγή περιεχομένου σταματά στη μέση",
+      "Μια ενημέρωση ή ένα backup δεν ολοκληρώνεται"
+    ],
+    "faq": [],
+    "related": [
+      "memory-exhausted",
+      "bad-gateway-502-504",
+      "upload-max-filesize"
+    ],
+    "author": "nikos-papadakis",
+    "published": "2026-04-28",
+    "last_reviewed": "2026-10-18"
+  },
+  {
+    "id": 31,
+    "slug": "change-php-version",
+    "title": "Πώς αλλάζω έκδοση PHP",
+    "excerpt": "Η νεότερη PHP είναι πιο γρήγορη και πιο ασφαλής. Έτσι κάνετε την αλλαγή χωρίς εκπλήξεις.",
+    "content": "<p>Κάθε έκδοση PHP υποστηρίζεται για περιορισμένο διάστημα. Μετά δεν παίρνει διορθώσεις ασφαλείας. Τη συνιστώμενη έκδοση τη βλέπετε στο wordpress.org/about/requirements.</p>\n<h2>Βήματα</h2>\n<ol><li>Δείτε την τρέχουσα έκδοση στο <strong>Tools → Site Health → Info → Server</strong>.</li><li>Ενημερώστε πρώτα το WordPress, τα plugins και το theme. Οι νεότερες εκδόσεις τους υποστηρίζουν τη νεότερη PHP.</li><li>Πάρτε backup και, αν μπορείτε, δοκιμάστε σε staging.</li><li>Αλλάξτε την έκδοση από τον πίνακα του hosting (π.χ. «Select PHP Version» ή «MultiPHP Manager» στο cPanel, «PHP Settings» στο Plesk).</li><li>Ελέγξτε το site και το debug.log. Αν κάτι σπάσει, γυρίστε πίσω την έκδοση από το ίδιο σημείο.</li></ol>",
+    "category": "hosting-php",
+    "tags": [
+      "php",
+      "hosting",
+      "updates",
+      "site health"
+    ],
+    "difficulty": "beginner",
+    "error_message": null,
+    "symptoms": [
+      "Το Site Health λέει ότι η έκδοση PHP είναι παλιά",
+      "Ένα plugin ζητά νεότερη PHP για να ενημερωθεί"
+    ],
+    "faq": [
+      {
+        "question": "Θα χαλάσει το site;",
+        "answer": "Αν τα plugins και το theme είναι ενημερωμένα, σπάνια. Τα προβλήματα έρχονται συνήθως από plugins που έχουν χρόνια να ενημερωθούν."
+      }
+    ],
+    "related": [
+      "safe-updates",
+      "slow-site",
+      "white-screen-of-death"
+    ],
+    "author": "nikos-papadakis",
+    "published": "2026-05-20",
+    "last_reviewed": "2026-11-02"
+  },
+  {
+    "id": 32,
+    "slug": "mixed-content",
+    "title": "Mixed content: το λουκέτο δεν εμφανίζεται",
+    "excerpt": "Το site ανοίγει με https, αλλά κάποιες εικόνες ή scripts φορτώνουν με http. Πώς τα βρίσκετε και τα διορθώνετε.",
+    "content": "<p>Όταν η σελίδα ανοίγει με https αλλά φορτώνει κάτι με http, ο browser τη θεωρεί μερικώς ανασφαλή.</p>\n<h2>Βρείτε τι φορτώνει με http</h2>\n<p>Ανοίξτε τα Developer Tools του browser (F12) στην καρτέλα Console. Κάθε προειδοποίηση «Mixed Content» γράφει τη διεύθυνση που φταίει.</p>\n<h2>Διορθώστε</h2>\n<ol><li>Στο <strong>Settings → General</strong>, και οι δύο διευθύνσεις να ξεκινούν με https.</li><li>Αντικαταστήστε τις παλιές διευθύνσεις στη βάση. Με WP-CLI: <pre><code>wp search-replace 'http://example.com' 'https://example.com' --all-tables --dry-run</code></pre> Τρέξτε το πρώτα με <code>--dry-run</code>, μετά χωρίς.</li><li>Ελέγξτε το theme και τα widgets για διευθύνσεις γραμμένες με http.</li></ol>",
+    "category": "hosting-dns-ssl",
+    "tags": [
+      "ssl",
+      "https",
+      "search-replace"
+    ],
+    "difficulty": "beginner",
+    "error_message": "Mixed Content: The page was loaded over HTTPS, but requested an insecure element.",
+    "symptoms": [
+      "Ο browser γράφει «Not secure» ή δείχνει λουκέτο με προειδοποίηση",
+      "Εικόνες ή γραμματοσειρές λείπουν μετά τη μετάβαση σε https"
+    ],
+    "faq": [
+      {
+        "question": "Μπορώ να το λύσω με plugin;",
+        "answer": "Ναι, υπάρχουν plugins που αλλάζουν τις διευθύνσεις την ώρα που φορτώνει η σελίδα. Η μόνιμη λύση όμως είναι η αντικατάσταση στη βάση."
+      }
+    ],
+    "related": [
+      "ssl-certificate-error",
+      "too-many-redirects",
+      "change-domain"
+    ],
+    "author": "eleni-dimitriou",
+    "published": "2026-02-26",
+    "last_reviewed": "2026-10-24"
+  },
+  {
+    "id": 33,
+    "slug": "ssl-certificate-error",
+    "title": "«Your connection is not private»: πρόβλημα με το πιστοποιητικό",
+    "excerpt": "Ο browser δεν εμπιστεύεται το πιστοποιητικό SSL του site. Έληξε, δεν ταιριάζει με το domain ή δεν εγκαταστάθηκε.",
+    "content": "<p>Ο κωδικός στο τέλος του μηνύματος λέει τι φταίει:</p>\n<ul><li><strong>ERR_CERT_DATE_INVALID:</strong> το πιστοποιητικό έληξε. Τα Let's Encrypt ισχύουν 90 ημέρες και ανανεώνονται αυτόματα, εκτός αν κάτι εμποδίζει την ανανέωση, π.χ. αλλαγμένο DNS.</li><li><strong>ERR_CERT_COMMON_NAME_INVALID:</strong> το πιστοποιητικό δεν καλύπτει αυτή τη διεύθυνση, π.χ. καλύπτει το example.com αλλά όχι το www.example.com.</li><li><strong>ERR_CERT_AUTHORITY_INVALID:</strong> το πιστοποιητικό είναι αυτο-υπογεγραμμένο ή λείπει η αλυσίδα του.</li></ul>\n<h2>Τι κάνετε</h2>\n<ol><li>Στον πίνακα του hosting, βρείτε την ενότητα SSL (π.χ. «AutoSSL» ή «Let's Encrypt») και εκδώστε ξανά το πιστοποιητικό, μαζί με το www.</li><li>Ελέγξτε ότι το DNS δείχνει στον server που εκδίδει το πιστοποιητικό.</li><li>Επιβεβαιώστε με το SSL Labs Server Test.</li></ol>",
+    "category": "hosting-dns-ssl",
+    "tags": [
+      "ssl",
+      "https",
+      "lets encrypt",
+      "dns"
+    ],
+    "difficulty": "beginner",
+    "error_message": "Your connection is not private (NET::ERR_CERT_DATE_INVALID)",
+    "symptoms": [
+      "Κόκκινη σελίδα προειδοποίησης πριν ανοίξει το site",
+      "Το πρόβλημα υπάρχει μόνο με www ή μόνο χωρίς www"
+    ],
+    "faq": [],
+    "related": [
+      "mixed-content",
+      "dns-propagation",
+      "too-many-redirects"
+    ],
+    "author": "nikos-papadakis",
+    "published": "2026-03-30",
+    "last_reviewed": "2026-10-24"
+  },
+  {
+    "id": 34,
+    "slug": "dns-propagation",
+    "title": "Άλλαξα DNS και το site δεν φαίνεται ακόμα",
+    "excerpt": "Οι αλλαγές DNS δεν φαίνονται παντού ταυτόχρονα. Πόσο περιμένετε και πώς βλέπετε το νέο site πριν από όλους.",
+    "content": "<p>Κάθε DNS server κρατά τις εγγραφές στη μνήμη για όσο ορίζει το TTL. Μέχρι να λήξει, δίνει την παλιά διεύθυνση. Συνήθως η αλλαγή φαίνεται μέσα σε λίγες ώρες. Μπορεί όμως να πάρει έως 48 ώρες.</p>\n<h2>Τι κάνετε</h2>\n<ul><li>Δείτε πού δείχνει το domain σε διάφορες χώρες με ένα εργαλείο όπως το dnschecker.org.</li><li>Αδειάστε το DNS cache του υπολογιστή σας. Στα Windows: <code>ipconfig /flushdns</code>.</li><li>Για να δείτε το νέο site πριν από όλους, προσθέστε τη νέα IP στο αρχείο hosts του υπολογιστή σας.</li></ul>\n<h2>Την επόμενη φορά</h2>\n<p>Μια μέρα πριν την αλλαγή, κατεβάστε το TTL στα 300 δευτερόλεπτα. Η αλλαγή θα φανεί σε λίγα λεπτά.</p>",
+    "category": "hosting-dns-ssl",
+    "tags": [
+      "dns",
+      "ttl",
+      "domains",
+      "hosts file"
+    ],
+    "difficulty": "beginner",
+    "error_message": "DNS_PROBE_FINISHED_NXDOMAIN",
+    "symptoms": [
+      "Εσείς βλέπετε το παλιό site και κάποιος άλλος το νέο",
+      "Ο browser γράφει ότι δεν βρίσκει τον server"
+    ],
+    "faq": [
+      {
+        "question": "Θα χαθούν email κατά την αλλαγή;",
+        "answer": "Αν αλλάζετε και τις εγγραφές MX, κάποια email μπορεί να φτάσουν στον παλιό server για λίγες ώρες. Κρατήστε τον παλιό λογαριασμό email ενεργό για λίγες μέρες."
+      }
+    ],
+    "related": [
+      "move-to-new-host",
+      "ssl-certificate-error",
+      "emails-in-spam"
+    ],
+    "author": "nikos-papadakis",
+    "published": "2026-04-10",
+    "last_reviewed": "2026-09-29"
+  },
+  {
+    "id": 35,
+    "slug": "emails-not-sending",
+    "title": "Το WordPress δεν στέλνει email",
+    "excerpt": "Φόρμες επικοινωνίας, παραγγελίες και επαναφορά κωδικού δεν φτάνουν. Η λύση είναι συνήθως ένα SMTP plugin.",
+    "content": "<p>Από προεπιλογή το WordPress στέλνει email με τη συνάρτηση <code>mail()</code> της PHP. Πολλοί servers δεν την έχουν ρυθμισμένη ή την μπλοκάρουν, και τα email που φεύγουν έτσι μοιάζουν ύποπτα στους παραλήπτες.</p>\n<h2>Λύση</h2>\n<ol><li>Εγκαταστήστε ένα SMTP plugin από το wordpress.org.</li><li>Συνδέστε το με πραγματικό λογαριασμό αποστολής: το email του domain σας ή μια υπηρεσία transactional email.</li><li>Στείλτε δοκιμαστικό email από τις ρυθμίσεις του plugin.</li><li>Κρατήστε log των email που στέλνονται, για να ξέρετε αν έφυγαν.</li></ol>\n<p>Η διεύθυνση αποστολέα (From) πρέπει να ανήκει στο domain του site, όχι σε gmail.com.</p>",
+    "category": "hosting-email",
+    "tags": [
+      "email",
+      "smtp",
+      "contact forms"
+    ],
+    "difficulty": "intermediate",
+    "error_message": "Could not instantiate mail function.",
+    "symptoms": [
+      "Δεν έρχονται τα email από τις φόρμες",
+      "Οι πελάτες δεν παίρνουν email παραγγελίας",
+      "Το «Lost your password?» δεν στέλνει τίποτα"
+    ],
+    "faq": [
+      {
+        "question": "Τα email φεύγουν, αλλά πάνε στα spam.",
+        "answer": "Τότε το πρόβλημα είναι οι εγγραφές SPF, DKIM και DMARC του domain."
+      }
+    ],
+    "related": [
+      "emails-in-spam",
+      "locked-out-of-admin",
+      "critical-error"
+    ],
+    "author": "maria-konstantinou",
+    "published": "2026-02-14",
+    "last_reviewed": "2026-10-27"
+  },
+  {
+    "id": 36,
+    "slug": "emails-in-spam",
+    "title": "Τα email του site πάνε στα spam",
+    "excerpt": "Χωρίς SPF, DKIM και DMARC, οι πάροχοι email δεν μπορούν να επαληθεύσουν ότι το email ήρθε από εσάς.",
+    "content": "<p>Από το 2024 το Gmail και το Yahoo απορρίπτουν ή στέλνουν στα spam τα μη πιστοποιημένα email.</p>\n<h2>Οι τρεις εγγραφές DNS</h2>\n<ul><li><strong>SPF:</strong> λέει ποιοι servers επιτρέπεται να στέλνουν για το domain. Μόνο μία εγγραφή SPF ανά domain.</li><li><strong>DKIM:</strong> ψηφιακή υπογραφή σε κάθε email. Το κλειδί σας το δίνει ο πάροχος email ή η υπηρεσία αποστολής.</li><li><strong>DMARC:</strong> λέει τι να γίνεται με τα email που αποτυγχάνουν στους ελέγχους. Ξεκινήστε με <code>v=DMARC1; p=none; rua=mailto:dmarc@example.com</code> και αυστηροποιήστε αργότερα.</li></ul>\n<h2>Έλεγχος</h2>\n<p>Στείλτε ένα email από το site σε ένα εργαλείο όπως το mail-tester.com. Θα δείτε βαθμολογία και τι λείπει.</p>",
+    "category": "hosting-email",
+    "tags": [
+      "email",
+      "dns",
+      "spf",
+      "dkim",
+      "dmarc"
+    ],
+    "difficulty": "intermediate",
+    "error_message": null,
+    "symptoms": [
+      "Τα email φτάνουν, αλλά στον φάκελο spam",
+      "Το Gmail δείχνει προειδοποίηση δίπλα στον αποστολέα",
+      "Επιστροφές με «550 5.7.26» ή «unauthenticated sender»"
+    ],
+    "faq": [
+      {
+        "question": "Έχω ήδη SPF για το Google Workspace. Τι κάνω για το SMTP plugin;",
+        "answer": "Προσθέστε την υπηρεσία αποστολής στην ίδια εγγραφή SPF. Δεν φτιάχνετε δεύτερη."
+      }
+    ],
+    "related": [
+      "emails-not-sending",
+      "dns-propagation"
+    ],
+    "author": "nikos-papadakis",
+    "published": "2026-05-27",
+    "last_reviewed": "2026-10-27"
+  },
+  {
+    "id": 37,
+    "slug": "move-to-new-host",
+    "title": "Μεταφορά WordPress σε νέο hosting",
+    "excerpt": "Αρχεία, βάση, wp-config.php, DNS. Η σειρά που μεταφέρει το site χωρίς διακοπή.",
+    "content": "<ol><li><strong>Κατεβάστε το TTL</strong> του domain στα 300 δευτερόλεπτα, μία μέρα πριν.</li><li><strong>Πάρτε αντίγραφο</strong> αρχείων και βάσης. Ένα plugin μεταφοράς τα κάνει ένα πακέτο. Για μεγάλα sites, προτιμήστε SFTP και WP-CLI (<code>wp db export</code>).</li><li><strong>Στον νέο server:</strong> ανεβάστε τα αρχεία, φτιάξτε βάση και χρήστη, εισάγετε τη βάση και διορθώστε τα στοιχεία στο wp-config.php.</li><li><strong>Δοκιμάστε πριν αλλάξετε DNS:</strong> βάλτε τη νέα IP στο αρχείο hosts του υπολογιστή σας και ελέγξτε το site.</li><li><strong>Αλλάξτε το DNS.</strong> Μην κάνετε αλλαγές στο περιεχόμενο μέχρι να ολοκληρωθεί η αλλαγή, αλλιώς θα γραφτούν στον παλιό server.</li><li><strong>Εκδώστε SSL</strong> στον νέο server μόλις το DNS δείξει εκεί.</li><li><strong>Κρατήστε τον παλιό server</strong> μερικές μέρες, για ασφάλεια.</li></ol>",
+    "category": "hosting-migration",
+    "tags": [
+      "migration",
+      "hosting",
+      "dns",
+      "backup"
+    ],
+    "difficulty": "advanced",
+    "error_message": null,
+    "symptoms": [
+      "Αλλάζετε πάροχο hosting",
+      "Μεταφέρετε το site από staging σε ζωντανό server"
+    ],
+    "faq": [
+      {
+        "question": "Αλλάζει κάτι αν μένει το ίδιο domain;",
+        "answer": "Δεν χρειάζεται search-replace. Αρκούν τα στοιχεία της βάσης στο wp-config.php."
+      }
+    ],
+    "related": [
+      "change-domain",
+      "dns-propagation",
+      "backup-strategy",
+      "database-connection-error",
+      "posts-404-permalinks"
+    ],
+    "author": "nikos-papadakis",
+    "published": "2026-06-17",
+    "last_reviewed": "2026-11-10"
+  },
+  {
+    "id": 38,
+    "slug": "change-domain",
+    "title": "Αλλαγή domain: search-replace χωρίς να σπάσει η βάση",
+    "excerpt": "Το WordPress γράφει τη διεύθυνση του site σε πολλά σημεία της βάσης, και κάποια είναι serialized. Γιατί δεν αρκεί ένα SQL REPLACE.",
+    "content": "<p>Πολλά plugins αποθηκεύουν ρυθμίσεις ως «serialized» δεδομένα, όπου γράφεται και το μήκος κάθε κειμένου. Αν αλλάξετε το domain με απλό SQL <code>REPLACE</code>, το μήκος παύει να ταιριάζει και οι ρυθμίσεις χάνονται.</p>\n<h2>Σωστός τρόπος</h2>\n<ol><li>Backup της βάσης.</li><li>Με WP-CLI, που χειρίζεται σωστά τα serialized δεδομένα: <pre><code>wp search-replace 'https://old.example.com' 'https://new.example.com' --all-tables --dry-run</code></pre> Αν τα αποτελέσματα είναι σωστά, τρέξτε το ξανά χωρίς <code>--dry-run</code>.</li><li>Χωρίς WP-CLI, χρησιμοποιήστε ένα plugin search-replace που υποστηρίζει serialized δεδομένα.</li><li>Βάλτε <strong>301 redirects</strong> από το παλιό domain στο νέο, σελίδα προς σελίδα.</li><li>Δηλώστε την αλλαγή στο Google Search Console (Change of Address).</li></ol>",
+    "category": "hosting-migration",
+    "tags": [
+      "migration",
+      "search-replace",
+      "wp-cli",
+      "redirects",
+      "seo"
+    ],
+    "difficulty": "advanced",
+    "error_message": null,
+    "symptoms": [
+      "Μετά την αλλαγή domain, εικόνες και σύνδεσμοι δείχνουν στο παλιό",
+      "Widgets ή ρυθμίσεις plugins χάθηκαν μετά από αντικατάσταση με SQL"
+    ],
+    "faq": [],
+    "related": [
+      "move-to-new-host",
+      "mixed-content",
+      "too-many-redirects"
+    ],
+    "author": "eleni-dimitriou",
+    "published": "2026-07-01",
+    "last_reviewed": "2026-11-10"
+  },
+  {
+    "id": 39,
+    "slug": "backup-strategy",
+    "title": "Backups: τι, πόσο συχνά και πού",
+    "excerpt": "Ένα backup που δεν έχετε δοκιμάσει να επαναφέρετε δεν είναι backup. Ο κανόνας 3-2-1 για WordPress sites.",
+    "content": "<p>Ένα WordPress site αποτελείται από δύο πράγματα: τη <strong>βάση δεδομένων</strong> (περιεχόμενο, ρυθμίσεις) και τα <strong>αρχεία</strong> (κυρίως το wp-content: uploads, themes, plugins). Το backup χρειάζεται και τα δύο.</p>\n<h2>Ο κανόνας 3-2-1</h2>\n<ul><li><strong>3</strong> αντίγραφα,</li><li>σε <strong>2</strong> διαφορετικά μέσα,</li><li><strong>1</strong> εκτός του server, π.χ. σε cloud storage.</li></ul>\n<h2>Πόσο συχνά</h2>\n<p>Η βάση κάθε μέρα για sites που αλλάζουν συχνά, π.χ. eshops. Τα αρχεία μία φορά την εβδομάδα και πριν από κάθε μεγάλη ενημέρωση. Κρατήστε τουλάχιστον 30 ημέρες ιστορικό: ένα χακάρισμα μπορεί να μείνει απαρατήρητο για εβδομάδες.</p>\n<h2>Δοκιμάστε την επαναφορά</h2>\n<p>Μία φορά τον μήνα, επαναφέρετε ένα backup σε staging. Μόνο έτσι ξέρετε ότι δουλεύει.</p>",
+    "category": "hosting-migration",
+    "tags": [
+      "backup",
+      "restore",
+      "security"
+    ],
+    "difficulty": "beginner",
+    "error_message": null,
+    "symptoms": [
+      "Δεν ξέρετε αν έχετε backup",
+      "Το μόνο backup είναι στον ίδιο server με το site"
+    ],
+    "faq": [
+      {
+        "question": "Ο πάροχος κρατά backups. Χρειάζομαι δικά μου;",
+        "answer": "Ναι. Τα backups του παρόχου είναι στον ίδιο πάροχο και συχνά κρατούνται για λίγες μέρες. Χρειάζεστε και ένα αντίγραφο αλλού."
+      }
+    ],
+    "related": [
+      "safe-updates",
+      "hacked-site-first-steps",
+      "move-to-new-host",
+      "database-cleanup"
+    ],
+    "author": "giorgos-alexiou",
+    "published": "2026-01-12",
+    "last_reviewed": "2026-11-01"
+  }
+]
